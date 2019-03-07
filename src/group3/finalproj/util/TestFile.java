@@ -1,6 +1,6 @@
 // TODO - This file will be deleted. It is a placeholder used to upload the project to git as well test certain functionalities
 
-package group.project.utilities;
+package group3.finalproj.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
