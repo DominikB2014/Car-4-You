@@ -1,6 +1,0 @@
-SFWR ENG 2XB3
-400115125 - Dominik Buszowiecki - Project Leader, Designer, Programmer
-400138826 - Andrew Hum - Tester, Programmer
-400090956 - Zayed Sheet - Log Master, Designer, Progammer
-400144881 - Pedram Yazdinia - Tester, Programmer
-"The work submitted is our own work" - March 7, 2019
