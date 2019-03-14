@@ -1,5 +1,8 @@
 package group3.finalproj.data;
 
+/*
+ * 
+ */
 class Car {
 	public final String make;
 	public final String model;
