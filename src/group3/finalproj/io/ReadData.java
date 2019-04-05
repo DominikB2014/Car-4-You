@@ -29,9 +29,8 @@ public class ReadData {
 //				
 //			}
 			String[] car = scanner.nextLine().split(",");
-			for (int i = 0; i < categories.length; i++) {
-				cars.add(new Car(categories, car));
-			}
+			
+			cars.add(new Car(categories, car));
 			
 			for (Car carr: cars) {
 				System.out.println(carr);

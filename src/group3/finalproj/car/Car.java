@@ -19,7 +19,7 @@ public class Car {
 	 */
 	public Car(String[] categories, String[] values) {
 		for (int i = 0; i < categories.length; i++) {
-			if(Category.isNumericCategory(Category.valueOf(categories[i])))
+			if(!values[i].equals("") && Category.isNumericCategory(Category.valueOf(categories[i])))
 				this.categories.put(Category.valueOf(categories[i]), Integer.parseInt(values[i]));
 			else this.categories.put(Category.valueOf(categories[i]), values[i]);
 		}
