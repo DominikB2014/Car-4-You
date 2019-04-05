@@ -9,7 +9,7 @@ package group3.finalproj.data;
  */
 enum Category {
 	
-	Make("make"),
+	Make("Make"),
 	Model("Model"),
 	Year("Year"),
 	Price("Price"),
