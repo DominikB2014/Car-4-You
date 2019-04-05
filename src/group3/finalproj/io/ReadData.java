@@ -1,9 +1,11 @@
-package group3.finalproj.data;
+package group3.finalproj.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import group3.finalproj.car.Car;
 
 /**
  * Reads and initializes car data into the program
@@ -13,7 +15,7 @@ import java.util.Scanner;
  */
 public class ReadData {
 
-	public ArrayList<Car> cars = new ArrayList<Car>();
+	public static ArrayList<Car> cars = new ArrayList<Car>();
 
 	public static void readCars(String file) {
 		try {
@@ -28,7 +30,11 @@ public class ReadData {
 //			}
 			String[] car = scanner.nextLine().split(",");
 			for (int i = 0; i < categories.length; i++) {
-				System.out.println(categories[i] + ": " + car[i]);
+				cars.add(new Car(categories, car));
+			}
+			
+			for (Car carr: cars) {
+				System.out.println(carr);
 			}
 			
 			
