@@ -28,9 +28,9 @@ public class ReadData {
 //				car = scanner.nextLine().split(",");
 //				
 //			}
-			String[] car = scanner.nextLine().split(",");
 			
-			cars.add(new Car(categories, car));
+			cars.add(new Car(categories, scanner.nextLine().split(",")));
+			cars.add(new Car(categories, scanner.nextLine().split(",")));
 			
 			for (Car carr: cars) {
 				System.out.println(carr);
