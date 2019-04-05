@@ -25,7 +25,7 @@ enum Category {
 	Link("Link");
 	
 	private String category;
-	
+	//
 	public String getCategory() {
 		return this.category;
 	}
