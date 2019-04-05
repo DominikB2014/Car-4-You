@@ -26,7 +26,11 @@ enum Category {
 	
 	private String category;
 	
-	private Category(String category) {
+	public String getCategory() {
+		return this.category;
+	}
+	
+	Category(String category) {
 		this.category = category;
 	}
 	
