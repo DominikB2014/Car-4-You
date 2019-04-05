@@ -30,8 +30,7 @@ public class TestFile {
 			String[] car = line.split(",");
 			for(int i = 0; i < columns.length; i++) {
 				System.out.println(columns[i] + ": " + car[i]);
-			}
-			
+			}	
 			
 			scanner.close();
 		}

@@ -2,6 +2,7 @@ package group3.finalproj.data;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,30 +12,33 @@ import java.util.Scanner;
  *
  */
 public class ReadData {
-	
-	public Car cars[] = new Car[1000];
-	
-	public static void main(String args[]) {
-		try {
-			Scanner scanner = new Scanner(new File("data/SalesData.csv")); // Read file
-			
-			// Column titles in the database
-			String columnLine = scanner.nextLine();
-			System.out.println(columnLine);
-			String[] columns = columnLine.split(","); // Array of column titles
-			columns[0] = columns[0].substring(3);
 
-			// Single car in database
-			String[] car = scanner.nextLine().split(",");
+	public ArrayList<Car> cars = new ArrayList<Car>();
+
+	public static void readCars(String file, String[] categories) {
+		try {
+			Scanner scanner = new Scanner(new File(file));
 			
+			//Column titles in the database
+			String columnLine = scanner.nextLine();
+			String[] columns = columnLine.split(",");
+//			while(scanner.hasNextLine()) {
+//				car = scanner.nextLine().split(",");
+//				
+//			}
+			String[] car = scanner.nextLine().split(",");
 			for (int i = 0; i < columns.length; i++) {
 				System.out.println(columns[i] + ": " + car[i]);
 			}
-
-
 			scanner.close();
-		} catch (FileNotFoundException e) {
+		}catch (FileNotFoundException e) {
 			System.out.println("File not Found");
 		}
+	}
+
+	public static void main(String args[]) {
+		String[] cat = {"SUV"};
+		readCars("data/usedCars.csv", cat);
+		
 	}
 }

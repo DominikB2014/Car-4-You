@@ -1,34 +1,32 @@
 package group3.finalproj.data;
 
+import java.util.TreeMap;
+
+import restaurants.Menu;
+
 /*
  * 
  */
 class Car {
-	public final String make;
-	public final String model;
-	public final String category;
-	public final int year;
-	public int count = 0; //number of times car has been purchased
-	public double avgPrice, avgKm;
 	
-	
-	protected Car(String make, String model, int year, String category) {
-		this.make = make;
-		this.model = model;
-		this.year = year;
-		this.category = category;
+	public TreeMap<Category, Object> categories = new TreeMap<Category, Object>();
+
+	protected Car(String[] categories, String[] values) {
+		/*Category order: Make, Model, Year, Price, BodyStyle, Trim, Fuel Type, CityMPG, HwMPG, Drivetrain, Trans, engine, mileage*, link
+		   *mileage only in used car database  */
+		for (int i = 0; i < categories.length; i++) {
+			this.categories.put(Category(categories[i]), values[i]);
+		}
+		
+		for (String category: categories) {
+			
+		}
+
 	}
-	
-	protected void insertCar(int price, int kilometers, boolean auto) {
-		avgKm = count * avgKm;
-		avgPrice = count * avgKm;
-		count ++;
-		avgKm = (avgKm + kilometers)/count;
-		avgPrice = (avgPrice + price)/count;
-	}
-	
+
+	@Override
 	public String toString() {
-		return year + " " + make + " " + model + " " 
-				+ count + " " + "avgPrice" + " " + avgKm;
+		return year + " " + make + " " + model + " for: $" + price;
 	}
+
 }
