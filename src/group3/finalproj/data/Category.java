@@ -18,7 +18,7 @@ enum Category {
 	FuelType("Fuel Type"),
 	CityMPG("City MPG"),
 	HighwayMPG("Highway MPG"), 
-	DriveTrain("Drivetrain"),
+	Drivetrain("Drivetrain"),
 	Transmission("Transmission"),
 	Engine("Engine"),
 	Mileage("Mileage"),
