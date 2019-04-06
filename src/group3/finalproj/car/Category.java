@@ -28,7 +28,7 @@ enum Category {
 	
 	/**
 	 * Retrieves the string value of a category
-	 * @return
+	 * @return string value
 	 */
 	@Override
 	public String toString() {
