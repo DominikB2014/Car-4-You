@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JCheckBox;
@@ -146,7 +147,15 @@ public class GUI {
 					System.out.print(type + " ");
 				}
 				
-				frame.dispose();
+				if (!types.isEmpty()) {
+					frame.dispose();
+					PriceCondition condition = new PriceCondition();
+					condition.setVisible(true);
+					System.out.println("TEST");
+				}else {
+					JOptionPane.showMessageDialog(null, "Please Select at least 1 category");
+				}
+
 			}
 		});
 		btnNext.setBounds(335, 227, 89, 23);
