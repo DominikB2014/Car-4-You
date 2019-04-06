@@ -21,7 +21,7 @@ public class ReadData {
 	 * @param file - the name of the database file 
 	 * @param types - array of cartypes that shall be read
 	 */
-	public static void readCars(String file, CarType[] types) {
+	public static void readCars(String file, ArrayList<CarType> types) {
 		readCars(file, types, 0, Integer.MAX_VALUE);
 	}
 
@@ -32,7 +32,7 @@ public class ReadData {
 	 * @param minPrice - minimum price of car to be read
 	 * @param maxPrice - maximum price of a car to be read
 	 */
-	public static void readCars(String file, CarType[] types, int minPrice, int maxPrice) {
+	public static void readCars(String file, ArrayList<CarType> types, int minPrice, int maxPrice) {
 		try {
 			Scanner scanner = new Scanner(new File(file));
 			
@@ -72,7 +72,9 @@ public class ReadData {
 	 * @param args - command line argument
 	 */
 	public static void main(String args[]) {
-		CarType[] types = {CarType.CargoVan, CarType.Sedan}; //Must be in sorted order!
+		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!
+		types.add(CarType.CargoVan);
+		types.add(CarType.Coupe);
 		readCars("data/newCars.csv", types, 0, 40000);
 		
 	}
