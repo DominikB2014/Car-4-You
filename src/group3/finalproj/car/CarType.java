@@ -3,16 +3,16 @@ package group3.finalproj.car;
 public enum CarType {
 	CargoVan("Cargo Van"),
 	Convertible("Convertible"),
+	Coupe("Coupe"),
 	CrewCabPickup("Crew Cab Pickup"),
 	ExtendedCabPickup("Extended Cab Pickup"),
-	RegularCabPickup("Regular Cab Pickup"),
 	Hatchback("Hatchback"),
 	Minivan("Minivan"),
 	PassengerVan("Passenger Van"),
+	RegularCabPickup("Regular Cab Pickup"),
 	Sedan("Sedan"),
 	SUV("SUV"),
-	Wagon("Wagon"),
-	Coupe("Coupe");
+	Wagon("Wagon");
 	
 
 	private String carType;
