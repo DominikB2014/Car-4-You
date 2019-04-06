@@ -18,8 +18,12 @@ import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
+
+import group3.finalproj.car.CarType;
+
 import javax.swing.event.ChangeEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.awt.event.ItemEvent;
 
 public class GUI {
@@ -115,13 +119,37 @@ public class GUI {
 		chckbxWagon.setBounds(183, 120, 129, 23);
 		frame.getContentPane().add(chckbxWagon);
 		
+		ArrayList<CarType> types = new ArrayList<CarType>(); //Initalizes 
+		
 		JButton btnNext = new JButton("Next");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(chckbx) 
+				types.clear();
+				
+				//Intializes array list of car types, in alphabetical order
+				if(chckbxCargoVan.isSelected()) types.add(CarType.CargoVan);
+				if(chckbxConvertible.isSelected()) types.add(CarType.Convertible);
+				if(chckbxCoupe.isSelected()) types.add(CarType.Coupe);
+				if(chckbxCrewCabPickup.isSelected()) types.add(CarType.CrewCabPickup);
+				if(chckbxExtendedCabPickup.isSelected()) types.add(CarType.ExtendedCabPickup);
+				if(chckbxHatchback.isSelected()) types.add(CarType.Hatchback);
+				if(chckbxMinivan.isSelected()) types.add(CarType.Minivan);
+				if(chckbxPassengerVan.isSelected()) types.add(CarType.PassengerVan);
+				if(chckbxRegularCabPickup.isSelected()) types.add(CarType.RegularCabPickup);
+				if(chckbxSedan.isSelected()) types.add(CarType.Sedan);
+				if(chckbxSUV.isSelected()) types.add(CarType.SUV);
+				if(chckbxWagon.isSelected()) types.add(CarType.Wagon);
+				
+				//Prints to console selected vehicles
+				System.out.print("Selected: ");
+				for (CarType type: types) {
+					System.out.print(type + " ");
+				}
+				System.out.println();
 			}
 		});
 		btnNext.setBounds(335, 227, 89, 23);
 		frame.getContentPane().add(btnNext);
 	}
+	
 }

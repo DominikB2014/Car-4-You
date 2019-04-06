@@ -1,6 +1,6 @@
 package group3.finalproj.car;
 
-public enum CarType {
+public enum CarType{
 	CargoVan("Cargo Van"),
 	Convertible("Convertible"),
 	Coupe("Coupe"),
