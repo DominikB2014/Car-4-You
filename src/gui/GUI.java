@@ -1,4 +1,4 @@
-package group3.finalproj.io;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -145,11 +145,13 @@ public class GUI {
 				for (CarType type: types) {
 					System.out.print(type + " ");
 				}
-				System.out.println();
+				
+				frame.dispose();
 			}
 		});
 		btnNext.setBounds(335, 227, 89, 23);
 		frame.getContentPane().add(btnNext);
 	}
+	
 	
 }
