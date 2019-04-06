@@ -30,7 +30,8 @@ enum Category {
 	 * Retrieves the string value of a category
 	 * @return
 	 */
-	public String getCategory() {
+	@Override
+	public String toString() {
 		return this.category;
 	}
 	
