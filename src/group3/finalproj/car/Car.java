@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class Car {
 	
 	//Maps a category to a particular value of a car
-	public TreeMap<Property, Object> categories = new TreeMap<Property, Object>();
+	public TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
 
 	/**
 	 * Constructs a car based on its categories
@@ -23,12 +23,12 @@ public class Car {
 			// If the category is numeric, convert value to Integer and add to TreeMap
 			if(Property.isNumericProperty(Property.valueOf(categories[i]))) {
 				if (values[i].equals(""))
-					this.categories.put(Property.valueOf(categories[i]), 0);
-				else this.categories.put(Property.valueOf(categories[i]), Integer.parseInt(values[i]));
+					this.properties.put(Property.valueOf(categories[i]), 0);
+				else this.properties.put(Property.valueOf(categories[i]), Integer.parseInt(values[i]));
 			}
 			
 			//If the category is not numeric, add its string value			
-			else this.categories.put(Property.valueOf(categories[i]), values[i]);
+			else this.properties.put(Property.valueOf(categories[i]), values[i]);
 		}
 	}
 
@@ -37,9 +37,9 @@ public class Car {
 	 */
 	@Override
 	public String toString() {
-		return categories.get(Property.Year) + " " + 
-				categories.get(Property.Make) + " " 
-					+ categories.get(Property.Model) + " for: $" 
-						+ categories.get(Property.Price);
+		return properties.get(Property.Year) + " " + 
+				properties.get(Property.Make) + " " 
+					+ properties.get(Property.Model) + " for: $" 
+						+ properties.get(Property.Price);
 	}
 }
