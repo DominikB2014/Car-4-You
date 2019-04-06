@@ -149,9 +149,8 @@ public class GUI {
 				
 				if (!types.isEmpty()) {
 					frame.dispose();
-					PriceCondition condition = new PriceCondition();
+					PriceCondition condition = new PriceCondition(types);
 					condition.setVisible(true);
-					System.out.println("TEST");
 				}else {
 					JOptionPane.showMessageDialog(null, "Please Select at least 1 category");
 				}
