@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class Car {
 	
 	//Maps a category to a particular value of a car
-	public TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
+	private TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
 
 	/**
 	 * Constructs a car based on its categories
@@ -30,6 +30,10 @@ public class Car {
 			//If the category is not numeric, add its string value			
 			else this.properties.put(Property.valueOf(categories[i]), values[i]);
 		}
+	}
+	
+	public Object get(Property property) {
+		return properties.get(property);
 	}
 
 	/**
