@@ -16,14 +16,22 @@ public class ReadData {
 
 	public static ArrayList<Car> cars = new ArrayList<Car>();
 	
+	/**
+	 * Reads cars with specific types into the cars array
+	 * @param file - the name of the database file 
+	 * @param types - array of cartypes that shall be read
+	 */
 	public static void readCars(String file, CarType[] types) {
 		readCars(file, types, 0, Integer.MAX_VALUE);
 	}
 
 	/**
-	 * Reads cars into the cars array
+	/**
+	 * Reads cars with specifc types and in a price range into the cars array
 	 * @param file - the name of the database file 
 	 * @param types - array of cartypes that shall be read
+	 * @param minPrice - minimum price of car to be read
+	 * @param maxPrice - maximum price of a car to be read
 	 */
 	public static void readCars(String file, CarType[] types, int minPrice, int maxPrice) {
 		try {
@@ -42,9 +50,14 @@ public class ReadData {
 				
 				//When first occurence of car type is found, add all cars of that type
 				System.out.println("Found First: " + type + "\n");
-				while(CarType.valueOf(car[4]) == type) {	
-					cars.add(new Car(categories, car));
-					System.out.println("	Adding: " + cars.get(cars.size()-1)); //Prints which car is being added
+				while(CarType.valueOf(car[4]) == type) {
+					Car newCar = new Car(categories, car);
+					
+					//Checks if the car is in the price range specified
+					if (minPrice <= (int)newCar.properties.get(Property.Price) && (int)newCar.properties.get(Property.Price) <= maxPrice) {
+						cars.add(new Car(categories, car));
+						System.out.println("	Adding: " + cars.get(cars.size()-1)); //Prints which car is being added
+					}
 					car = scanner.nextLine().split(",");
 				}
 			}
@@ -61,7 +74,7 @@ public class ReadData {
 	 */
 	public static void main(String args[]) {
 		CarType[] types = {CarType.CargoVan, CarType.Sedan}; //Must be in sorted order!
-		readCars("data/newCars.csv", types);
+		readCars("data/newCars.csv", types, 0, 40000);
 		
 	}
 }

@@ -7,7 +7,7 @@ package group3.finalproj.car;
  * Enumerated type to represent the different properties of a car model
  * @author Dominik Buszowiecki
  */
-enum Property {
+public enum Property {
 	
 	Make("Make"),
 	Model("Model"),
