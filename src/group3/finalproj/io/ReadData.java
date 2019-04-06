@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import group3.finalproj.car.Car;
-import group3.finalproj.car.CarType;
+import group3.finalproj.car.*;
 
 /**
  * Reads and initializes car data into the program
@@ -16,13 +15,17 @@ import group3.finalproj.car.CarType;
 public class ReadData {
 
 	public static ArrayList<Car> cars = new ArrayList<Car>();
+	
+	public static void readCars(String file, CarType[] types) {
+		readCars(file, types, 0, Integer.MAX_VALUE);
+	}
 
 	/**
 	 * Reads cars into the cars array
 	 * @param file - the name of the database file 
 	 * @param types - array of cartypes that shall be read
 	 */
-	public static void readCars(String file, CarType[] types) {
+	public static void readCars(String file, CarType[] types, int minPrice, int maxPrice) {
 		try {
 			Scanner scanner = new Scanner(new File(file));
 			
@@ -39,7 +42,7 @@ public class ReadData {
 				
 				//When first occurence of car type is found, add all cars of that type
 				System.out.println("Found First: " + type + "\n");
-				while(CarType.valueOf(car[4]) == type) {
+				while(CarType.valueOf(car[4]) == type) {	
 					cars.add(new Car(categories, car));
 					System.out.println("	Adding: " + cars.get(cars.size()-1)); //Prints which car is being added
 					car = scanner.nextLine().split(",");

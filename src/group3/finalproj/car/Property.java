@@ -4,10 +4,10 @@
 package group3.finalproj.car;
 
 /**
- * Enumerated type to represent the different categories of a car model
+ * Enumerated type to represent the different properties of a car model
  * @author Dominik Buszowiecki
  */
-enum Category {
+enum Property {
 	
 	Make("Make"),
 	Model("Model"),
@@ -24,24 +24,24 @@ enum Category {
 	Mileage("Mileage"),
 	Link("Link");
 	
-	private String category;
+	private String property;
 	
 	/**
-	 * Retrieves the string value of a category
+	 * Retrieves the string value of a property
 	 * @return string value
 	 */
 	@Override
 	public String toString() {
-		return this.category;
+		return this.property;
 	}
 	
 	/**
-	 * Determines if a category is associated with a number
-	 * @param cat A category of a car
-	 * @return true if the category is numeric, otherwise false
+	 * Determines if a property is associated with a number
+	 * @param prop A property of a car
+	 * @return true if the property is numeric, otherwise false
 	 */
-	public static boolean isNumericCategory(Category cat) {
-		switch(cat) {
+	public static boolean isNumericProperty(Property prop) {
+		switch(prop) {
 			case Price: return true;
 			case Year: return true;
 			case CityMPG: return true;
@@ -52,11 +52,11 @@ enum Category {
 	}
 	
 	/**
-	 * Constructor for a category
-	 * @param category String of the category name
+	 * Constructor for a property
+	 * @param property String of the property name
 	 */
-	Category(String category) {
-		this.category = category;
+	Property(String property) {
+		this.property = property;
 	}
 	
 	
