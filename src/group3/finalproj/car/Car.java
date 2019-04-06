@@ -22,7 +22,7 @@ public class Car {
 			
 			// If the category is numeric, convert value to Integer and add to TreeMap
 			if(Category.isNumericCategory(Category.valueOf(categories[i]))) {
-				if (!values[i].equals(""))
+				if (values[i].equals(""))
 					this.categories.put(Category.valueOf(categories[i]), 0);
 				else this.categories.put(Category.valueOf(categories[i]), Integer.parseInt(values[i]));
 			}
