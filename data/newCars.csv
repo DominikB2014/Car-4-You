@@ -1,7 +1,7 @@
 Make,Model,Year,Price,BodyStyle,Trim,FuelType,CityMPG,HighwayMPG,Drivetrain,Transmission,Engine,Link
 Cheverolet,City Express,2018,22024,CargoVan,1LT,Gasoline,24,26,FWD,Automatic CVT,2.0L I4 16V MPFI DOHC,http://cars.com/vehicledetail/detail/732917986/overview/
 Cheverolet,City Express,2018,24665,CargoVan,1LS,Gasoline,24,26,FWD,Variable,2.0L,http://cars.com/vehicledetail/detail/766483077/overview/
-Cheverolet,City Express,2017,24067,CargoVan,1LT,Gasoline,24,26,FWD,,"Engine, 2.0L DOHC I4 (131 hp [97.7 kW]@ 5200 rpm, 139-lb-ft of t",http://cars.com/vehicledetail/detail/758561911/overview/
+Cheverolet,City Express,2017,24067,CargoVan,1LT,Gasoline,24,26,FWD,,Engine 2.0L DOHC I4 (131 hp [97.7 kW]@ 5200 rpm 139-lb-ft of t,http://cars.com/vehicledetail/detail/758561911/overview/
 Cheverolet,City Express,2017,23555,CargoVan,1LT,Gasoline,24,26,FWD,Automatic CVT,2.0L I4 16V MPFI DOHC,http://cars.com/vehicledetail/detail/703900905/overview/
 Cheverolet,City Express,2017,25500,CargoVan,1LT,Gasoline,24,26,FWD,Automatic CVT,2.0L I4 16V MPFI DOHC,http://cars.com/vehicledetail/detail/710958735/overview/
 Cheverolet,City Express,2017,24263,CargoVan,1LT,Gasoline,24,26,FWD,Automatic CVT,2.0L I4 16V MPFI DOHC,http://cars.com/vehicledetail/detail/701341706/overview/
@@ -452,7 +452,7 @@ BMW,M240,2018,51145,Convertible,i xDrive,Gasoline,21,30,AWD,8-Speed Automatic w/
 BMW,M240,2018,59030,Convertible,i xDrive,Gasoline,21,30,AWD,8-Speed Automatic,3.0L I6 24V GDI DOHC Turbo,http://cars.com/vehicledetail/detail/743844390/overview/
 BMW,M240,2017,48745,Convertible,i xDrive,Gasoline,21,31,AWD,8-Speed Automatic w/OD,Intercooled Turbo Premium Unleaded I-6 3.0 L/183,http://cars.com/vehicledetail/detail/706847674/overview/
 BMW,M240,2017,54990,Convertible,i xDrive,Gasoline,21,31,All-wheel Drive,a,I-6 cyl,http://cars.com/vehicledetail/detail/757827310/overview/
-BMW,M4,2019,92265,Convertible,Base,Gasoline,17,25,RWD,"7-Speed Manual Double-clutch, Drivelogic",3.0L I6 Turbocharged DOHC 24V ULEV II 444hp,http://cars.com/vehicledetail/detail/757753230/overview/
+BMW,M4,2019,92265,Convertible,Base,Gasoline,17,25,RWD,7-Speed Manual Double-clutch Drivelogic,3.0L I6 Turbocharged DOHC 24V ULEV II 444hp,http://cars.com/vehicledetail/detail/757753230/overview/
 BMW,M4,2018,86435,Convertible,,Gasoline,17,25,RWD,6-Speed Manual,3.0L I6 24V GDI DOHC Twin Turbo,http://cars.com/vehicledetail/detail/719633851/overview/
 BMW,M4,2018,91345,Convertible,Base,Gasoline,17,25,RWD,7-Speed Auto-Shift Manual w/OD,Twin Turbo Premium Unleaded I-6 3.0 L/182,http://cars.com/vehicledetail/detail/731715522/overview/
 BMW,M4,2018,86435,Convertible,Base,Gasoline,17,25,RWD,6-Speed Manual,3.0L 6-Cylinder Turbocharged DOHC,http://cars.com/vehicledetail/detail/709628974/overview/
@@ -891,7 +891,7 @@ BMW,M4,2019,123330,Coupe,CS,Gasoline,17,23,RWD,7-Speed Automatic with Auto-Shift
 BMW,M4,2019,82755,Coupe,Base,Gasoline,18,25,RWD,7-Speed Automatic with Auto-Shift,3.0L I6 24V GDI DOHC Twin Turbo,http://cars.com/vehicledetail/detail/752554632/overview/
 BMW,M4,2019,106295,Coupe,CS,Gasoline,17,23,RWD,7-Speed Auto-Shift Manual w/OD,Twin Turbo Premium Unleaded I-6 3.0 L/182,http://cars.com/vehicledetail/detail/748499762/overview/
 BMW,M4,2019,114445,Coupe,CS,Gasoline,17,23,RWD,7-Speed Auto-Shift Manual w/OD,Twin Turbo Premium Unleaded I-6 3.0 L/182,http://cars.com/vehicledetail/detail/758620688/overview/
-BMW,M4,2018,80885,Coupe,Base,Gasoline,17,25,RWD,"7-Speed Manual Double-clutch, Drivelogic",3.0L I6 Turbocharged DOHC 24V LEV3-ULEV125 444hp,http://cars.com/vehicledetail/detail/749877695/overview/
+BMW,M4,2018,80885,Coupe,Base,Gasoline,17,25,RWD,7-Speed Manual Double-clutch Drivelogic,3.0L I6 Turbocharged DOHC 24V LEV3-ULEV125 444hp,http://cars.com/vehicledetail/detail/749877695/overview/
 BMW,M4,2018,69785,Coupe,Base,Gasoline,17,25,RWD,7-Speed Automatic with Auto-Shift,3.0L I6 24V GDI DOHC Twin Turbo,http://cars.com/vehicledetail/detail/701513413/overview/
 BMW,M4,2017,77125,Coupe,Base,Gasoline,17,26,RWD,7-Speed Double Clutch,6 Cylinder,http://cars.com/vehicledetail/detail/686536914/overview/
 BMW,M4,2016,129200,Coupe,GTS,Gasoline,16,23,RWD,AUTOMATIC,Straight 6 Cylinder Engine 3.0L,http://cars.com/vehicledetail/detail/715119050/overview/
@@ -1511,7 +1511,7 @@ Toyota,Tacoma,2019,35860,CrewCabPickup,TRD Sport,Gasoline,19,24,4WD,6-Speed Auto
 Toyota,Tacoma,2019,33628,CrewCabPickup,SR,Gasoline,20,23,4WD,Automatic 6-Speed,3.5L V6,http://cars.com/vehicledetail/detail/765571037/overview/
 Toyota,Tacoma,2019,38166,CrewCabPickup,TRD Sport,Gasoline,19,24,Four Wheel Drive,,3.5L V6 Cylinder Engine,http://cars.com/vehicledetail/detail/766002510/overview/
 Toyota,Tacoma,2019,36117,CrewCabPickup,TRD Off Road,Gasoline,18,22,4WD,6-Speed Automatic,3.5L V6 24V PDI DOHC,http://cars.com/vehicledetail/detail/764847589/overview/
-Toyota,Tacoma,2019,41448,CrewCabPickup,TRD Sport,Gasoline,19,24,Four Wheel Drive,Automatic w/OD,"V6, 3.5L",http://cars.com/vehicledetail/detail/763486304/overview/
+Toyota,Tacoma,2019,41448,CrewCabPickup,TRD Sport,Gasoline,19,24,Four Wheel Drive,Automatic w/OD,V6 3.5L,http://cars.com/vehicledetail/detail/763486304/overview/
 Toyota,Tacoma,2017,32596,CrewCabPickup,SR5,Gasoline,19,24,RWD,6-Speed Automatic,3.5L V6 24V PDI DOHC,http://cars.com/vehicledetail/detail/733384188/overview/
 Toyota,Tacoma,2017,39330,CrewCabPickup,TRD Sport,Gasoline,17,20,4WD,6-Speed Automatic,3.5L V6 24V PDI DOHC,http://cars.com/vehicledetail/detail/732327051/overview/
 Toyota,Tacoma,2017,34505,CrewCabPickup,SR5,Gasoline,19,24,4WD,6-Speed Automatic,3.5L V6 24V PDI DOHC,http://cars.com/vehicledetail/detail/749697564/overview/
@@ -2217,7 +2217,7 @@ Toyota,Sienna,2019,37845,Minivan,SE,Gasoline,19,27,FWD,Automatic 8-Speed,3.5L V6
 Toyota,Sienna,2019,33670,Minivan,LE,Gasoline,19,27,FWD,8-Speed Automatic w/OD,Regular Unleaded V-6 3.5 L/211,http://cars.com/vehicledetail/detail/764105035/overview/
 Toyota,Sienna,2019,40108,Minivan,XLE,Gasoline,19,27,FWD,AUTOMATIC,V6 Cylinder Engine 3.5L,http://cars.com/vehicledetail/detail/759143447/overview/
 Toyota,Sienna,2019,42239,Minivan,XLE Premium,Gasoline,18,24,FWD,AUTOMATIC,V6 Cylinder Engine 3.5L,http://cars.com/vehicledetail/detail/750299630/overview/
-Toyota,Sienna,2018,43617,Minivan,SE Premium,Gasoline,19,27,Front Wheel Drive,8-Speed Automatic,"6cyl, 3.5L, 296.0hp",http://cars.com/vehicledetail/detail/751227240/overview/
+Toyota,Sienna,2018,43617,Minivan,SE Premium,Gasoline,19,27,Front Wheel Drive,8-Speed Automatic,6cyl 3.5L 296.0hp,http://cars.com/vehicledetail/detail/751227240/overview/
 Toyota,Sienna,2018,42414,Minivan,XLE Premium,Gasoline,19,27,FWD,8-Speed Automatic,3.5L V6 24V GDI DOHC,http://cars.com/vehicledetail/detail/742535245/overview/
 Toyota,Sienna,2018,38153,Minivan,XLE,Gasoline,19,27,FWD,8-Speed Automatic w/OD,Regular Unleaded V-6 3.5 L/211,http://cars.com/vehicledetail/detail/761585606/overview/
 Toyota,Sienna,2018,45421,Minivan,Limited Premium,Gasoline,18,24,AWD,8-Speed Automatic,3.5L V6 24V GDI DOHC,http://cars.com/vehicledetail/detail/751208644/overview/
@@ -3659,7 +3659,7 @@ Mazda,Mazda3,2017,21650,Sedan,Grand Touring,Gasoline,25,34,FWD,6-Speed Automatic
 Mazda,Mazda3,2016,15125,Sedan,i Sport,Gasoline,29,41,FWD,6-Speed Automatic w/OD,Regular Unleaded I-4 2.0 L/122,http://cars.com/vehicledetail/detail/678675045/overview/
 Mazda,Mazda6,2018,29041,Sedan,Grand Touring Reserve,Gasoline,23,31,FWD,6-Speed Automatic,2.5L I4 16V GDI DOHC Turbo,http://cars.com/vehicledetail/detail/764079646/overview/
 Mazda,Mazda6,2018,28185,Sedan,Grand Touring,Gasoline,23,31,FWD,Automatic,2.5L 4-Cylinder Turbocharged,http://cars.com/vehicledetail/detail/737622694/overview/
-Mazda,Mazda6,2018,26895,Sedan,Touring,Gasoline,26,35,Front Wheel Drive,Automatic w/OD,"L4, 2.5L; DOHC",http://cars.com/vehicledetail/detail/766662870/overview/
+Mazda,Mazda6,2018,26895,Sedan,Touring,Gasoline,26,35,Front Wheel Drive,Automatic w/OD,L4 2.5L; DOHC,http://cars.com/vehicledetail/detail/766662870/overview/
 Mazda,Mazda6,2018,27479,Sedan,Grand Touring,Gasoline,23,31,FWD,6-Speed Automatic,2.5L I4 16V GDI DOHC Turbo,http://cars.com/vehicledetail/detail/742180169/overview/
 Mazda,Mazda6,2018,32908,Sedan,Signature,Gasoline,23,31,FWD,6-Speed Automatic w/OD,Intercooled Turbo Regular Unleaded I-4 2.5 L/152,http://cars.com/vehicledetail/detail/740636024/overview/
 Mazda,Mazda6,2017,27700,Sedan,Grand Touring,Gasoline,26,35,FWD,6-Speed Automatic w/OD,Regular Unleaded I-4 2.5 L/152,http://cars.com/vehicledetail/detail/704872268/overview/
@@ -4839,7 +4839,7 @@ GMC,Acadia,2018,35827,SUV,SLT-1,Gasoline,21,26,FWD,6-Speed Automatic,3.6L V6 SID
 GMC,Acadia,2018,43194,SUV,SLT-2,Gasoline,18,25,AWD,6-Speed Automatic,3.6L V6 24V GDI DOHC,http://cars.com/vehicledetail/detail/733150038/overview/
 GMC,Acadia,2018,37382,SUV,SLE-2,Gasoline,21,26,AWD,6-Speed Automatic,2.5L 4-Cylinder DGI DOHC VVT,http://cars.com/vehicledetail/detail/756641153/overview/
 GMC,Acadia,2017,34999,SUV,SLT-1,Gasoline,18,25,AWD,AUTOMATIC,3.6L V6 Cylinder Engine,http://cars.com/vehicledetail/detail/738321983/overview/
-GMC,Acadia,2017,38100,SUV,SLE-2,Gasoline,21,26,Front Wheel Drive,Automatic,"L4, 2.5L; DOHC",http://cars.com/vehicledetail/detail/763490434/overview/
+GMC,Acadia,2017,38100,SUV,SLE-2,Gasoline,21,26,Front Wheel Drive,Automatic,L4 2.5L; DOHC,http://cars.com/vehicledetail/detail/763490434/overview/
 GMC,Acadia,2017,34950,SUV,SLT-1,Gasoline,18,25,FWD,6-Speed Automatic,2.5L I4 16V GDI DOHC,http://cars.com/vehicledetail/detail/689348849/overview/
 GMC,Acadia,2017,38910,SUV,SLT-2,Gasoline,18,25,AWD,6-Speed Automatic,3.6L V6 24V GDI DOHC,http://cars.com/vehicledetail/detail/700042500/overview/
 GMC,Acadia,2017,44495,SUV,SLE-2,Gasoline,21,26,AWD,AUTOMATIC,V6 Cylinder Engine 3.6L,http://cars.com/vehicledetail/detail/726176568/overview/
@@ -5440,7 +5440,7 @@ Lexus,LX 570,2018,86375,SUV,Base,Gasoline,,,AWD,8-Speed Automatic,8 Cylinder,htt
 Lexus,LX 570,2018,98945,SUV,Three-Row,Gasoline,13,18,4WD,8-Speed Automatic,5.7L V8 32V MPFI DOHC,http://cars.com/vehicledetail/detail/765509930/overview/
 Lexus,LX 570,2018,98263,SUV,Three-Row,Gasoline,13,18,4WD,8-Speed Automatic,5.7L V8 32V MPFI DOHC,http://cars.com/vehicledetail/detail/746204319/overview/
 Lexus,LX 570,2018,99334,SUV,Three-Row,Gasoline,13,18,4WD,8-Speed Automatic,5.7L V8 32V MPFI DOHC,http://cars.com/vehicledetail/detail/746155243/overview/
-Lexus,LX 570,2016,69900,SUV,Base,Gasoline,13,18,4WD,Automatic,"V8, 5.7L",http://cars.com/vehicledetail/detail/756059915/overview/
+Lexus,LX 570,2016,69900,SUV,Base,Gasoline,13,18,4WD,Automatic,V8 5.7L,http://cars.com/vehicledetail/detail/756059915/overview/
 Lexus,NX 200t,2017,38220,SUV,F Sport,Gasoline,22,28,FWD,6-Speed Automatic,2.0L I4 16V PDI DOHC Turbo,http://cars.com/vehicledetail/detail/759513847/overview/
 Lexus,NX 200t,2016,38874,SUV,Base,Gasoline,22,28,AWD,6-Speed Automatic,2.0L 16V DOHC,http://cars.com/vehicledetail/detail/757981294/overview/
 Lexus,NX 200t,2015,,SUV,F Sport,Gasoline,22,27,AWD,6-Speed Automatic w/OD,Intercooled Turbo Premium Unleaded I-4 2.0 L/122,http://cars.com/vehicledetail/detail/672610805/overview/
@@ -6291,7 +6291,7 @@ Toyota,Sequoia,2018,63323,SUV,Limited,Gasoline,13,17,4WD,6-Speed Automatic,5.7L 
 Toyota,Sequoia,2018,58111,SUV,Limited,Gasoline,13,17,4WD,6-Speed Automatic w/OD,Regular Unleaded V-8 5.7 L/346,http://cars.com/vehicledetail/detail/711366749/overview/
 Toyota,Sequoia,2018,69383,SUV,Platinum,Gasoline,13,17,4WD,Automatic 6-Speed,5.7L V8,http://cars.com/vehicledetail/detail/742142122/overview/
 Toyota,Sequoia,2018,69663,SUV,Platinum,Gasoline,13,17,4WD,6-Speed Automatic Electronic,i-Force 5.7L V8 DOHC VVT-i,http://cars.com/vehicledetail/detail/741451885/overview/
-Toyota,Sequoia,2018,68988,SUV,Platinum,Gasoline,13,17,Four Wheel Drive,6-Speed Automatic Electronic,"8cyl, 5.7L, 381.0hp",http://cars.com/vehicledetail/detail/751227250/overview/
+Toyota,Sequoia,2018,68988,SUV,Platinum,Gasoline,13,17,Four Wheel Drive,6-Speed Automatic Electronic,8cyl 5.7L 381.0hp,http://cars.com/vehicledetail/detail/751227250/overview/
 Toyota,Sequoia,2017,60884,SUV,Platinum,Gasoline,13,17,RWD,6-Speed Automatic,5.7L V8 32V MPFI DOHC,http://cars.com/vehicledetail/detail/707200978/overview/
 Toyota,Sequoia,2017,46771,SUV,SR5,Gasoline,13,17,4WD,6-Speed Automatic,5.7L V8 32V MPFI DOHC,http://cars.com/vehicledetail/detail/765914259/overview/
 Toyota,Sequoia,2017,61453,SUV,Platinum,Gasoline,13,17,4WD,6-Speed Automatic Electronic,i-Force 5.7L V8 DOHC VVT-i,http://cars.com/vehicledetail/detail/739274554/overview/
@@ -6420,7 +6420,7 @@ Cheverolet,Bolt EV,2018,28999,Wagon,LT,Electric,128,110,FWD,1-Speed Automatic,El
 Cheverolet,Bolt EV,2018,38545,Wagon,LT,Electric,128,110,FWD,1-Speed Automatic,Electric Drive Unit,http://cars.com/vehicledetail/detail/742808979/overview/
 Cheverolet,Bolt EV,2018,37651,Wagon,LT,Electric,128,110,FWD,1-Speed Automatic,Electric,http://cars.com/vehicledetail/detail/747616890/overview/
 Cheverolet,Bolt EV,2018,36019,Wagon,Premier,Electric,128,110,FWD,AUTOMATIC,none,http://cars.com/vehicledetail/detail/756101037/overview/
-Cheverolet,Bolt EV,2017,38803,Wagon,LT,Electric,128,110,FWD,Automatic Transmission,"ENGINE, NONE",http://cars.com/vehicledetail/detail/758561905/overview/
+Cheverolet,Bolt EV,2017,38803,Wagon,LT,Electric,128,110,FWD,Automatic Transmission,ENGINE NONE,http://cars.com/vehicledetail/detail/758561905/overview/
 Cheverolet,Bolt EV,2017,36833,Wagon,LT,Electric,128,110,FWD,1-Speed Automatic,Electric,http://cars.com/vehicledetail/detail/721097219/overview/
 Cheverolet,Bolt EV,2017,32970,Wagon,LT,Electric,128,110,FWD,1-Speed Automatic,Electric,http://cars.com/vehicledetail/detail/753534516/overview/
 Cheverolet,Bolt EV,2017,34385,Wagon,LT,Electric,128,110,FWD,Automatic,Electric Drive Unit,http://cars.com/vehicledetail/detail/714921575/overview/
@@ -6601,7 +6601,7 @@ GMC,Savana 3500,2018,,,,,,,,,,http://cars.com/vehicledetail/detail/729260012/ove
 GMC,Sierra 1500,2019,,,,,,,,,,http://cars.com/vehicledetail/detail/764550804/overview/
 GMC,Sierra 3500,2018,51070,,4WD,Diesel,,,4WD,6-Speed Automatic,Turbo-Diesel V8 6.6L/,http://cars.com/vehicledetail/detail/753309669/overview/
 GMC,Sierra 3500,2018,36995,,Reg Cab,Gasoline,,,RWD,6-Speed Automatic,Gas V8 6.0L/366,http://cars.com/vehicledetail/detail/753309666/overview/
-GMC,Unknown,2019,43993,,"Work Van, KUV Utility Van",Gasoline,,,RWD,6-Speed Automatic,Gas V8 6.0L/364,http://cars.com/vehicledetail/detail/760607946/overview/
+GMC,Unknown,2019,43993,,Work Van KUV Utility Van,Gasoline,,,RWD,6-Speed Automatic,Gas V8 6.0L/364,http://cars.com/vehicledetail/detail/760607946/overview/
 GMC,Unknown,2019,35063,,3500,Gasoline,,,RWD,6-Speed Automatic,Gas V8 6.0L/364,http://cars.com/vehicledetail/detail/765566184/overview/
 GMC,Unknown,2019,41675,,Work Van,Gasoline,,,RWD,Automatic,6.0L V8 16V MPFI OHV,http://cars.com/vehicledetail/detail/751828841/overview/
 GMC,Unknown,2019,50203,,,Gasoline,,,RWD,6-Speed Automatic,Gas V8 6.0L/364,http://cars.com/vehicledetail/detail/760689748/overview/
