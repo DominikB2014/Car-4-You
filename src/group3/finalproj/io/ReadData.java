@@ -26,7 +26,6 @@ public class ReadData {
 	}
 
 	/**
-	/**
 	 * Reads cars with specifc types and in a price range into the cars array
 	 * @param file - the name of the database file 
 	 * @param types - array of cartypes that shall be read
