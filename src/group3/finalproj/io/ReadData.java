@@ -10,7 +10,6 @@ import group3.finalproj.car.CarType;
 
 /**
  * Reads and initializes car data into the program
- * 
  * @author Dominik Buszowiecki
  *
  */
@@ -18,6 +17,11 @@ public class ReadData {
 
 	public static ArrayList<Car> cars = new ArrayList<Car>();
 
+	/**
+	 * Reads cars into the cars array
+	 * @param file - the name of the database file 
+	 * @param types - array of cartypes that shall be read
+	 */
 	public static void readCars(String file, CarType[] types) {
 		try {
 			Scanner scanner = new Scanner(new File(file));
@@ -48,6 +52,10 @@ public class ReadData {
 		}
 	}
 
+	/**
+	 * Testing for read
+	 * @param args - command line argument
+	 */
 	public static void main(String args[]) {
 		CarType[] types = {CarType.CargoVan, CarType.Sedan}; //Must be in sorted order!
 		readCars("data/newCars.csv", types);
