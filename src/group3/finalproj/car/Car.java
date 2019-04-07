@@ -32,17 +32,28 @@ public class Car {
 		}
 	}
 	
+	/**
+	 * Compares this Car to another based on a property
+	 * @param property - The property to compare
+	 * @param car - Another car to compare to
+	 * @return 0 if the properties are equal, -1 if this property is less that the compared, otherwise 1
+	 */
 	public int compareTo(Property property, Car car) {
 		Object a = properties.get(property);
 		Object b = car.properties.get(property);
 		if (Property.isNumericProperty(property)) {
-			if ((int)a == (int)b) return 0;
+			if ((int)a > (int)b) return 1;
 			if ((int)a < (int)b) return -1;
-			return 1;
+			return 0;
 		}
 		else return ((String)a).compareTo((String)b);
 	}
 	
+	/**
+	 * Retrieves a particular property of a car
+	 * @param property - A property of a car
+	 * @return The value of that property
+	 */
 	public Object get(Property property) {
 		return properties.get(property);
 	}
