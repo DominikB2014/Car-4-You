@@ -10,6 +10,11 @@ import group3.finalproj.car.CarType;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * JPanel for Category Selection
+ * @author Dominik Buszowiecki
+ *
+ */
 public class Categories extends JPanel {
 	
 	private JCheckBox chckbxCrewCabPickup;
@@ -101,6 +106,9 @@ public class Categories extends JPanel {
 		add(lblSelectCarTypes);
 	}
 	
+	/**
+	 * Initalizes the types to be read from the file
+	 */
 	public void getTypes(){
 		Gui1.types.clear();
 		

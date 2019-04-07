@@ -9,6 +9,11 @@ import javax.swing.SwingConstants;
 
 import group3.finalproj.io.ReadData;
 
+/**
+ * JPanel to View Data being intialized in ReadData.java
+ * @author Dominik Buszowiecki
+ *
+ */
 public class InitData extends JPanel {
 
 	protected JLabel lblInitalizing;
@@ -37,6 +42,10 @@ public class InitData extends JPanel {
 		
 	}
 	
+	/**
+	 * Initalizes files into ReadData.cars based on user selected properties in Gui1.java
+	 * @return true if the data has been initalized, otherwise false
+	 */
 	public boolean initData() {
 		switch(Gui1.files) {
 		case 0: return ReadData.readCars("data/newCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);

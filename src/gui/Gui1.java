@@ -15,6 +15,11 @@ import javax.swing.JProgressBar;
 
 import group3.finalproj.car.CarType;
 
+/**
+ * GUI (JFrame) for the entire program
+ * @author Dominik Buszowiecki
+ *
+ */
 public class Gui1 {
 
 	private JFrame frame;
@@ -106,8 +111,5 @@ public class Gui1 {
 		});
 		btnNext.setBounds(425, 298, 89, 23);
 		frame.getContentPane().add(btnNext);	
-		
-		
-		
 	}
 }

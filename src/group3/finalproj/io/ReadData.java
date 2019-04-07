@@ -55,7 +55,7 @@ public class ReadData {
 				while(CarType.valueOf(car[4]) == type) {
 					Car newCar = new Car(categories, car);
 					
-					//Checks if the car is in the price range specified
+					//Checks if the car is in the price range specified, if it is adds it
 					if (minPrice <= (int)newCar.get(Property.Price) && (int)newCar.get(Property.Price) <= maxPrice) {
 						cars.add(new Car(categories, car));
 						System.out.println("	Adding: " + cars.get(cars.size()-1)); //Prints which car is being added

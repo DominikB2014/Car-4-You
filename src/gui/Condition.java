@@ -15,6 +15,11 @@ import javax.swing.text.NumberFormatter;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * JPanel for for Condition and Price selection
+ * @author Dominik Buszowiecki
+ *
+ */
 public class Condition extends JPanel {
 	private JFormattedTextField minPrice;
 	private JFormattedTextField maxPrice;
@@ -101,6 +106,9 @@ public class Condition extends JPanel {
 		add(lblConditionPrice);
 	}
 	
+	/**
+	 * Sets the Price and Condition of cars to be read
+	 */
 	public void setPriceCondition() {
 		if (!chckbxMinprice.isSelected()) Gui1.minPrice = 0;
 		else Gui1.minPrice = Integer.parseInt(minPrice.getText());
