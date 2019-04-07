@@ -1,5 +1,10 @@
 package group3.finalproj.car;
 
+/**
+ * Enumerated type to represent the different type of cars
+ * @author Dominik Buszowiecki
+ *
+ */
 public enum CarType{
 	CargoVan("Cargo Van"),
 	Convertible("Convertible"),
