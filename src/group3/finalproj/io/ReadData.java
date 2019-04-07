@@ -32,7 +32,7 @@ public class ReadData {
 	 * @param minPrice - minimum price of car to be read
 	 * @param maxPrice - maximum price of a car to be read
 	 */
-	public static void readCars(String file, ArrayList<CarType> types, int minPrice, int maxPrice) {
+	public static boolean readCars(String file, ArrayList<CarType> types, int minPrice, int maxPrice) {
 		try {
 			Scanner scanner = new Scanner(new File(file));
 			
@@ -42,7 +42,10 @@ public class ReadData {
 			
 			//Adds all cars of a the given types to the file
 			for(CarType type: types) {
-				if (!scanner.hasNext()) return;
+				if (!scanner.hasNext()) {
+					scanner.close();
+					return false;
+				}
 				
 				//Linear Search for first occurence of cartype
 				while (!(CarType.valueOf(car[4]) == type)) car = scanner.nextLine().split(",");
@@ -60,11 +63,13 @@ public class ReadData {
 					car = scanner.nextLine().split(",");
 				}
 				scanner.close();
+				return true;
 			}
 			
 		}catch (FileNotFoundException e) {
 			System.out.println("File not Found");
 		}
+		return false;
 	}
 
 	/**

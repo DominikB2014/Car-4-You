@@ -1,42 +1,49 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Font;
 
-import javax.swing.JFrame;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
-public class InitData extends JFrame {
+import group3.finalproj.io.ReadData;
 
-	private JPanel contentPane;
+public class InitData extends JPanel {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InitData frame = new InitData();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	protected JLabel lblInitalizing;
+	protected JLabel lblDone;
 
 	/**
-	 * Create the frame.
+	 * Create the panel.
 	 */
 	public InitData() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		setBounds(10, 11, 504, 276);
+		setLayout(null);
+		setVisible(false);
+
+		lblInitalizing = new JLabel("Loading Data: Please Wait");
+		lblInitalizing.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInitalizing.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblInitalizing.setBounds(10, 11, 468, 37);
+		add(lblInitalizing);
+		
+		lblDone = new JLabel("Loading Data: Done!");
+		lblDone.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDone.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDone.setBounds(10, 11, 468, 37);
+		lblDone.setVisible(false);
+		add(lblDone);
+		
+	}
+	
+	public boolean initData() {
+		switch(Gui1.files) {
+		case 0: return ReadData.readCars("data/newCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
+		case 1: return ReadData.readCars("data/usedCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
+		default: ReadData.readCars("data/newCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
+				return ReadData.readCars("data/usedCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
+		}
 	}
 
 }
