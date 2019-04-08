@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
-import group3.finalproj.car.CarType;
+import static group3.finalproj.car.CarType.*;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
@@ -113,18 +113,18 @@ public class Categories extends JPanel {
 		Gui1.types.clear();
 		
 		//Intializes array list of car types, in alphabetical order
-		if(chckbxCargoVan.isSelected()) Gui1.types.add(CarType.CargoVan);
-		if(chckbxConvertible.isSelected()) Gui1.types.add(CarType.Convertible);
-		if(chckbxCoupe.isSelected()) Gui1.types.add(CarType.Coupe);
-		if(chckbxCrewCabPickup.isSelected()) Gui1.types.add(CarType.CrewCabPickup);
-		if(chckbxExtendedCabPickup.isSelected()) Gui1.types.add(CarType.ExtendedCabPickup);
-		if(chckbxHatchback.isSelected()) Gui1.types.add(CarType.Hatchback);
-		if(chckbxMinivan.isSelected()) Gui1.types.add(CarType.Minivan);
-		if(chckbxPassengerVan.isSelected()) Gui1.types.add(CarType.PassengerVan);
-		if(chckbxRegularCabPickup.isSelected()) Gui1.types.add(CarType.RegularCabPickup);
-		if(chckbxSedan.isSelected()) Gui1.types.add(CarType.Sedan);
-		if(chckbxSuv.isSelected()) Gui1.types.add(CarType.SUV);
-		if(chckbxWagon.isSelected()) Gui1.types.add(CarType.Wagon);
+		if(chckbxCargoVan.isSelected()) Gui1.types.add(CargoVan);
+		if(chckbxConvertible.isSelected()) Gui1.types.add(Convertible);
+		if(chckbxCoupe.isSelected()) Gui1.types.add(Coupe);
+		if(chckbxCrewCabPickup.isSelected()) Gui1.types.add(CrewCabPickup);
+		if(chckbxExtendedCabPickup.isSelected()) Gui1.types.add(ExtendedCabPickup);
+		if(chckbxHatchback.isSelected()) Gui1.types.add(Hatchback);
+		if(chckbxMinivan.isSelected()) Gui1.types.add(Minivan);
+		if(chckbxPassengerVan.isSelected()) Gui1.types.add(PassengerVan);
+		if(chckbxRegularCabPickup.isSelected()) Gui1.types.add(RegularCabPickup);
+		if(chckbxSedan.isSelected()) Gui1.types.add(Sedan);
+		if(chckbxSuv.isSelected()) Gui1.types.add(SUV);
+		if(chckbxWagon.isSelected()) Gui1.types.add(Wagon);
 		
 	}
 }

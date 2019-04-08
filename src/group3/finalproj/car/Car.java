@@ -6,9 +6,9 @@ import java.util.TreeMap;
  * Data type used to represent a car
  * @author Dominik Buszowiecki
  */
-public class Car {
+public class Car{
 	
-	//Maps a category to a particular value of a car
+	//Maps a category to its value of this car
 	private TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
 
 	/**
@@ -20,8 +20,9 @@ public class Car {
 	public Car(String[] properties, String[] values) {
 		for (int i = 0; i < properties.length; i++) {
 			
-			// If the category is numeric, convert value to Integer and add to TreeMap
+			// If the property is numeric, convert value to Integer and add it to the TreeMap
 			if(Property.isNumericProperty(Property.valueOf(properties[i]))) {
+				//If the value associated with a numeric property is missing in the dataset, treat it as 0
 				if (values[i].equals(""))
 					this.properties.put(Property.valueOf(properties[i]), 0);
 				else this.properties.put(Property.valueOf(properties[i]), Integer.parseInt(values[i]));
