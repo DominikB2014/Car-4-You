@@ -40,7 +40,7 @@ public class Car{
 	 * @return 0 if the properties are equal, -1 if this property is less that the compared, otherwise 1
 	 */
 	public int compareTo(Property property, Car car) {
-		Object a = properties.get(property);
+		Object a = car.properties.get(property);
 		Object b = car.properties.get(property);
 		if (Property.isNumericProperty(property)) {
 			if ((int)a > (int)b) return 1;

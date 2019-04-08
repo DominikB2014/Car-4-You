@@ -5,6 +5,9 @@ package group3.finalproj.util;
 
 import java.util.*;
 
+import group3.finalproj.car.Car;
+import group3.finalproj.io.ReadData;
+
 /**
  * @author Andrew Hum
  *
@@ -15,13 +18,16 @@ public class Heap {
 
 	// This class should not be instantiated.
 	private Heap() {}
+	
+	public static ArrayList<Car> sortedCars = ReadData.cars;
+	
 
 	/**
 	 * Rearranges the array in ascending order, using the natural order.
 	 * 
 	 * @param pq the array to be sorted
 	 */
-	public static void sort(ArrayList<String> pq) {
+	public static void sort(ArrayList<Car> pq) {
 		int n = pq.size();
 		for (int k = n / 2; k >= 1; k--)
 			sink(pq, k, n);
@@ -35,7 +41,7 @@ public class Heap {
 	 * Helper functions to restore the heap invariant.
 	 ***************************************************************************/
 
-	private static void sink(ArrayList<String> pq, int k, int n) {
+	private static void sink(ArrayList<Car> pq, int k, int n) {
 		while (2 * k <= n) {
 			int j = 2 * k;
 			if (j < n && less(pq, j, j + 1))
@@ -51,18 +57,18 @@ public class Heap {
 	 * Helper functions for comparisons and swaps. Indices are "off-by-one" to
 	 * support 1-based indexing.
 	 ***************************************************************************/
-	private static boolean less(ArrayList<String> pq, int i, int j) {
-		return pq.get(i-1).compareTo(pq.get(j-1)) < 0;
+	private static boolean less(ArrayList<Car> pq, int i, int j) {
+		return (pq.get(i-1)).compareTo(pq.get(j-1)) < 0;
 	}
 
-	private static void exch(ArrayList<String> pq, int i, int j) {
-		String swap = pq.get(i - 1);
+	private static void exch(ArrayList<Car> pq, int i, int j) {
+		Car swap = pq.get(i - 1);
 		pq.set(i - 1, pq.get(j - 1));
 		pq.set(j - 1, swap);
 	}
 
 	// print array to standard output
-	private static void show(ArrayList<String> a) {
+	private static void show(ArrayList<Car> a) {
 		for (int i = 0; i < a.size(); i++) {
 			System.out.println(a.get(i));
 		}
@@ -75,13 +81,7 @@ public class Heap {
 	 * @param args the command-line arguments
 	 */
 	public static void main(String[] args) {
-		ArrayList<String> a = new ArrayList<String>();
-		a.add("1");
-		a.add("2");
-		a.add("6");
-		a.add("3");
-		a.add("11");
-		Heap.sort(a);
-		show(a);
+		Heap.sort(sortedCars);
+		show(sortedCars);
 	}
 }
