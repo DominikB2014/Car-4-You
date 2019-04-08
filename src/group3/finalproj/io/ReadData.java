@@ -42,10 +42,7 @@ public class ReadData {
 			
 			//Adds all cars of a the given types to the file
 			for(CarType type: types) {
-				if (!scanner.hasNext()) {
-					scanner.close();
-					return false;
-				}
+				if (!scanner.hasNext()) {scanner.close(); return false;}
 				
 				//Linear Search for first occurence of cartype
 				while (!(CarType.valueOf(car[4]) == type)) car = scanner.nextLine().split(",");
@@ -65,10 +62,8 @@ public class ReadData {
 				scanner.close();
 				return true;
 			}
-			
-		}catch (FileNotFoundException e) {
-			System.out.println("File not Found");
-		}
+			scanner.close();
+		}catch (FileNotFoundException e) {System.out.println("File not Found");}
 		return false;
 	}
 
