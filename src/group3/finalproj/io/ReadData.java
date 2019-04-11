@@ -59,10 +59,9 @@ public class ReadData {
 					}
 					car = scanner.nextLine().split(",");
 				}
-				scanner.close();
-				return true;
 			}
 			scanner.close();
+			return true;
 		}catch (FileNotFoundException e) {System.out.println("File not Found");}
 		return false;
 	}
