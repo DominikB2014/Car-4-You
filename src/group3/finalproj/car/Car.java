@@ -58,6 +58,10 @@ public class Car{
 	public Object get(Property property) {
 		return properties.get(property);
 	}
+	
+	public boolean hasProperty(Property property) {
+		return properties.containsKey(property);
+	}
 
 	/**
 	 * String representation of a Car
