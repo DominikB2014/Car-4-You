@@ -9,20 +9,23 @@ package group3.finalproj.car;
  */
 public enum Property {
 	
+	//String
 	Make("Make"),
 	Model("Model"),
-	Year("Year"),
-	Price("Price"),
 	BodyStyle("Body Style"),
 	Trim("Trim"),
 	FuelType("Fuel Type"),
-	CityMPG("City MPG"),
-	HighwayMPG("Highway MPG"), 
+	Link("Link"),
 	Drivetrain("Drivetrain"),
 	Transmission("Transmission"),
 	Engine("Engine"),
-	Mileage("Mileage"),
-	Link("Link");
+	
+	//Integer
+	Year("Year"),
+	Price("Price"),
+	CityMPG("City MPG"),
+	HighwayMPG("Highway MPG"), 
+	Mileage("Mileage");
 	
 	private String property;
 	
