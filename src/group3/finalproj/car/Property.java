@@ -5,7 +5,7 @@ package group3.finalproj.car;
 
 /**
  * Enumerated type to represent the different properties of a car model
- * @author Dominik Buszowiecki
+ * @author Dominik Buszowiecki 
  */
 public enum Property {
 	
@@ -26,6 +26,7 @@ public enum Property {
 	CityMPG("City MPG"),
 	HighwayMPG("Highway MPG"), 
 	Mileage("Mileage");
+	
 	
 	private String property;
 	
