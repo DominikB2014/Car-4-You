@@ -25,7 +25,8 @@ public enum Property {
 	Price("Price"),
 	CityMPG("City MPG"),
 	HighwayMPG("Highway MPG"), 
-	Mileage("Mileage");
+	Mileage("Mileage"),
+	Score("Score");
 	
 	
 	private String property;
@@ -51,6 +52,7 @@ public enum Property {
 			case CityMPG: return true;
 			case HighwayMPG: return true;
 			case Mileage: return true;
+			case Score: return true;
 			default: return false;
 		}
 	}

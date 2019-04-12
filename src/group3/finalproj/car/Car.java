@@ -130,7 +130,13 @@ public class Car{
 						+ properties.get(Property.Price);
 	}
 	
-	public int numCyl() {
+	public void addProperty(Property property, Object value) {
+		if(Property.isNumericProperty(property)) properties.put(property, (int)value);
+		else properties.put(property, value);
+	}
+	
+	private int numCyl() {
+		
 		if (((String)this.get(Property.Engine)).contains("4 ")){
 			return 4;
 		}
