@@ -8,4 +8,12 @@ public class Tuple {
 		this.property = x;
 		this.weight = y;
 	}
+	
+	public Property getProperty() {
+		return property;
+	}
+	
+	public int getRank() {
+		return weight;
+	}
 }
