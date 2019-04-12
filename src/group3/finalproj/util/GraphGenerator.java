@@ -43,6 +43,7 @@ public class GraphGenerator {
 	}
 	
 	public static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
+		System.out.println("Potential Cars: " + carTuples.size());
 		ArrayList<Car> bestCar = new ArrayList<Car>();
 		for (int i = 0 ; i < carTuples.size(); i++) {
 			carTuples.get(i).getProperty().addProperty(Property.Score, carTuples.get(i).getRank());
@@ -82,11 +83,11 @@ public class GraphGenerator {
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
+		System.out.println("Proprties Selected: " + properties.get(0));
 		System.out.println("Source Node: " + ReadData.cars.get(source));
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		Graph G = GraphGenerator.graphMake(3);
-		
 		
 		cars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, source, 40000, properties));
 		for (Car car: cars) {

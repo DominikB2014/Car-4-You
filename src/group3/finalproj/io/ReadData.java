@@ -60,7 +60,7 @@ public class ReadData {
 					car = scanner.nextLine().split(",");
 				}
 			}
-			System.out.println("DONE READ!");
+			System.out.println("DONE READ: Found " + cars.size() + " cars!");
 			scanner.close();
 			return true;
 		}catch (FileNotFoundException e) {System.out.println("File not Found");}
