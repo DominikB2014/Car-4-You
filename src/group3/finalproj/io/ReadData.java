@@ -49,7 +49,7 @@ public class ReadData {
 				
 				//When first occurence of car type is found, add all cars of that type
 				System.out.println("Found First: " + type + "\n");
-				while(CarType.valueOf(car[4]) == type) {
+				while(CarType.valueOf(car[4]) == type && scanner.hasNextLine()) {
 					Car newCar = new Car(categories, car);
 					
 					//Checks if the car is in the price range specified, if it is adds it

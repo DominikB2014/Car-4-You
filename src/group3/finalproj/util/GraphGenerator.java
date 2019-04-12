@@ -51,7 +51,7 @@ public class GraphGenerator {
 		}
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
-		for (int i = bestCar.size() - 1; i < bestCar.size() && i < bestCar.size()-6; i--) {
+		for (int i = bestCar.size() - 1; i < bestCar.size() && i > bestCar.size()-6; i--) {
 			fiveBest.add(bestCar.get(i));
 		}
 		return fiveBest;
@@ -81,14 +81,14 @@ public class GraphGenerator {
 		ReadData.readCars("data/newCars.csv", types, 0, 40000);
 		
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
-		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
-		System.out.println("Proprties Selected: " + properties.get(0));
+		System.out.println("Properties Selected: " + properties.get(0));
 		System.out.println("Source Node: " + ReadData.cars.get(source));
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		Graph G = GraphGenerator.graphMake(3);
 		
+		System.out.println("Recommended Cars");
 		cars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, source, 40000, properties));
 		for (Car car: cars) {
 			System.out.println(car);

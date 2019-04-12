@@ -113,7 +113,7 @@ public class Car {
 	 * @return the score of the property (higher is better)
 	 */
 	public int scoreCalc(Property property) {
-		return rankProperty(property, 10, Integer.MAX_VALUE);
+		return scoreProperty(property, 10, Integer.MAX_VALUE);
 	}
 
 	/**
@@ -126,9 +126,10 @@ public class Car {
 	 * @return the score of a set of properties (higher is betters)
 	 */
 	public int scoreCalc(ArrayList<Tuple<Property, Integer>> property_Rank, int maxPrice) {
+		if ((int)properties.get(Property.Price) == 0) return 0;
 		int score = 0;
 		for (Tuple<Property, Integer> tup : property_Rank) {
-			score += rankProperty(tup.getProperty(), tup.getRank(), maxPrice);
+			score += scoreProperty(tup.getProperty(), tup.getRank(), maxPrice);
 		}
 		return score;
 	}
@@ -150,8 +151,15 @@ public class Car {
 		}
 		return -1;
 	}
-
-	private int rankProperty(Property property, int rank, int maxPrice) {
+	
+	/**
+	 * Scores a property based on how the user ranks it
+	 * @param property - the property to be scored
+	 * @param rank - how highly the user ranks this property
+	 * @param maxPrice - the max price the user is willing to spend on a car
+	 * @return The score of the property, the higher the better
+	 */
+	private int scoreProperty(Property property, int rank, int maxPrice) {
 		switch (property) {
 
 		case CityMPG:
