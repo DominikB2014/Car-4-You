@@ -33,6 +33,7 @@ public class Gui1 {
 	private JFrame frame;
 	private int i = 0;
 	private Output[] carPanes = new Output[5];
+	private Graph G;
 	
 	protected static ArrayList<CarType> types = new ArrayList<CarType>();
 	protected static int minPrice;
@@ -130,7 +131,6 @@ public class Gui1 {
 		
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Graph G = null;
 				switch(i){
 					case 0:
 						typesPanel.getTypes();
@@ -170,11 +170,14 @@ public class Gui1 {
 							i++;
 							propertyPanel.setVisible(false);
 							//Outputs Car JFrames
-							for (int i = 0; i < 5; i ++) {
+							for (int i = 0; i < outputCars.size(); i ++) {
 								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
 								frame.getContentPane().add(carPanes[i]);
-								btnBack.setVisible(false);
 							}
+							for(int i = 0; i < 5 - outputCars.size(); i++) {
+								carPanes[i] = new Output("No Car Found", "");
+							}
+							btnBack.setVisible(false);
 							carPanes[0].setVisible(true);
 						}
 						break;
