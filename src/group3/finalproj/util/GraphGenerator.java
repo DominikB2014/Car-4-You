@@ -57,12 +57,12 @@ public class GraphGenerator {
 		return fiveBest;
 	}
 	
-	public static  boolean calcableProperty(Property p) {
+	private static  boolean calcableProperty(Property p) {
 		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 
 				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
 				|| p.equals(Property.Model) || p.equals(Property.FuelType));
 	}
-	public static int carIndex(Car c) {
+	private static int carIndex(Car c) {
 		for (int i = 0 ; i < ReadData.cars.size(); i++) {
 			if (ReadData.cars.get(i) == c) {
 				return i;
