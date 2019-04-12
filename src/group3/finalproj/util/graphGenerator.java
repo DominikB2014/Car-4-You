@@ -32,6 +32,24 @@ public class graphGenerator {
 		return G;
 	}
 	
+	public static ArrayList<Tuple<Car, Integer>> runDFS(Graph G, int source, int maxPrice, ArrayList<Tuple<Property, Integer>> property_Rank){
+		ArrayList<Tuple<Car, Integer>> carTuples = new ArrayList<Tuple<Car, Integer>>(); 
+		BreadthFirstPaths bfs = new BreadthFirstPaths(G, source);
+		boolean[] listCar = bfs.getMarked();
+		for (int i = 0; i < listCar.length; i++) {
+			if (listCar[i]) {
+				int score = ReadData.cars.get(i).scoreCalc(property_Rank, maxPrice);
+				Tuple<Car, Integer> tempTup = new Tuple<Car, Integer>(ReadData.cars.get(i), score);
+				carTuples.add(tempTup);
+			}
+		}
+		return carTuples;
+	}
+	
+	public static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
+		
+		return ;
+	}
 	
 	public static  boolean calcableProperty(Property p) {
 		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 

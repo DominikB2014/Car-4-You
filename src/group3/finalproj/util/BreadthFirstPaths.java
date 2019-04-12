@@ -43,6 +43,10 @@ public class BreadthFirstPaths {
 
         assert check(G, s);
     }
+    
+    public boolean[] getMarked() {
+    	return marked;
+    }
 
     /**
      * Computes the shortest path between any one of the source vertices in {@code sources}
