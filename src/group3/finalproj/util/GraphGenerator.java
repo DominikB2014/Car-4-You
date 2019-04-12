@@ -50,7 +50,7 @@ public class GraphGenerator {
 		}
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
-		for (int i = bestCar.size(); i > bestCar.size() - 5 && i < bestCar.size(); i++) {
+		for (int i = bestCar.size() - 1; i < bestCar.size() && i < bestCar.size()-6; i--) {
 			fiveBest.add(bestCar.get(i));
 		}
 		return fiveBest;
