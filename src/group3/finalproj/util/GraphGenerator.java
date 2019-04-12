@@ -12,15 +12,17 @@ import group3.finalproj.io.ReadData;
  */
 public class GraphGenerator {
 	
+	public static ArrayList<Car> cars = ReadData.cars;
+	
 	public static Graph graphMake(int n) {
-		Graph G = new Graph(ReadData.cars.size());
-		for (int i = 0; i < ReadData.cars.size(); i++) {
-			for (int j = i + 1; j < ReadData.cars.size(); j++) {
+		Graph G = new Graph(cars.size());
+		for (int i = 0; i < cars.size(); i++) {
+			for (int j = i + 1; j < cars.size(); j++) {
 				int count = 0;
 				for (Property p: Property.values()) {
-					if (ReadData.cars.get(i).hasProperty(p) && ReadData.cars.get(j).hasProperty(p) 
-							&& ReadData.cars.get(i).scoreCalc(p) < 11 && ReadData.cars.get(i).scoreCalc(p) > 5
-							&& ReadData.cars.get(j).scoreCalc(p) < 11 && ReadData.cars.get(j).scoreCalc(p) > 5
+					if (cars.get(i).hasProperty(p) && cars.get(j).hasProperty(p) 
+							&& cars.get(i).scoreCalc(p) < 11 && cars.get(i).scoreCalc(p) > 5
+							&& cars.get(j).scoreCalc(p) < 11 && cars.get(j).scoreCalc(p) > 5
 							&& calcableProperty(p)) {
 						count++;
 					}	
@@ -39,8 +41,8 @@ public class GraphGenerator {
 		boolean[] listCar = bfs.getMarked();
 		for (int i = 0; i < listCar.length; i++) {
 			if (listCar[i]) {
-				int score = ReadData.cars.get(i).scoreCalc(property_Rank, maxPrice);
-				Tuple<Car, Integer> tempTup = new Tuple<Car, Integer>(ReadData.cars.get(i), score);
+				int score = cars.get(i).scoreCalc(property_Rank, maxPrice);
+				Tuple<Car, Integer> tempTup = new Tuple<Car, Integer>(cars.get(i), score);
 				carTuples.add(tempTup);
 			}
 		}
@@ -72,13 +74,17 @@ public class GraphGenerator {
 				|| p.equals(Property.Model) || p.equals(Property.FuelType));
 	}
 	
-	private static int carIndex(Car c) {
-		for (int i = 0 ; i < ReadData.cars.size(); i++) {
-			if (ReadData.cars.get(i) == c) {
-				return i;
+	public static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
+		int source = 0;
+		for (Car c: cars) {
+			if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 4)) {
+				source = cars.indexOf(c);
+			}
+			else {
+				cars.remove(c);
 			}
 		}
-		return -1;
+		return 0;
 	}
 	
 	   /***************************************************************************
@@ -98,7 +104,7 @@ public class GraphGenerator {
 		
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
-		System.out.println("\nSource Node: " + ReadData.cars.get(source));
+		System.out.println("\nSource Node: " + cars.get(source));
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		Graph G = GraphGenerator.graphMake(3);
