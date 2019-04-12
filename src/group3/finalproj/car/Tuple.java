@@ -1,10 +1,10 @@
 package group3.finalproj.car;
 
-public class Tuple {
-	public final Property property;
-	public final int weight;
+public class Tuple<X, Y> {
+	public final X property;
+	public final Y weight;
 	
-	public Tuple(Property x, int y) {
+	public Tuple(X x, Y y) {
 		this.property = x;
 		this.weight = y;
 	}
@@ -13,11 +13,11 @@ public class Tuple {
 	public String toString () {
 		return property.toString() + " " + weight;
 }
-	public Property getProperty() {
+	public X getProperty() {
 		return property;
 	}
 	
-	public int getRank() {
+	public Y getRank() {
 		return weight;
 	}
 }

@@ -16,7 +16,10 @@ public class graphGenerator {
 			for (int j = i + 1; j < ReadData.cars.size(); j++) {
 				int count = 0;
 				for (Property p: Property.values()) {
-					if (ReadData.cars.get(i).hasProperty(p) && ReadData.cars.get(j).hasProperty(p) && ReadData.cars.get(i).compareTo(p, ReadData.cars.get(j)) == 0) {
+					if (ReadData.cars.get(i).hasProperty(p) && ReadData.cars.get(j).hasProperty(p) 
+							&& ReadData.cars.get(i).scoreCalc(p) < 11 && ReadData.cars.get(i).scoreCalc(p) > 5
+							&& ReadData.cars.get(j).scoreCalc(p) < 11 && ReadData.cars.get(j).scoreCalc(p) > 5
+							&& calcableProperty(p)) {
 						count++;
 					}
 				}
@@ -29,6 +32,11 @@ public class graphGenerator {
 	}
 	
 	
+	public static  boolean calcableProperty(Property p) {
+		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 
+				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
+				|| p.equals(Property.Model) || p.equals(Property.FuelType));
+	}
 	public static int carIndex(Car c) {
 		for (int i = 0 ; i < ReadData.cars.size(); i++) {
 			if (ReadData.cars.get(i) == c) {

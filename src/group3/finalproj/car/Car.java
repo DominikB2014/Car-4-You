@@ -69,14 +69,14 @@ public class Car{
 	}
 	
 	public int scoreCalc(Property property) {
-		ArrayList<Tuple> prop = new ArrayList<Tuple>();
-		prop.add(new Tuple(property, 10));
+		ArrayList<Tuple<Property, Integer>> prop = new ArrayList<Tuple<Property, Integer>>();
+		prop.add(new Tuple<Property, Integer>(property, 10));
 		return scoreCalc(prop, Integer.MAX_VALUE);
 	}
 	
-	public int scoreCalc(ArrayList<Tuple> property_Rank, int maxPrice) {
+	public int scoreCalc(ArrayList<Tuple<Property, Integer>> property_Rank, int maxPrice) {
 		int score = 0;
-		for (Tuple tup: property_Rank) {
+		for (Tuple<Property, Integer> tup: property_Rank) {
 			if (tup.getProperty().equals(Property.CityMPG)) {
 				if ((int)this.get(Property.CityMPG) > 50) {
 					score += 50 / 45 * tup.getRank();
