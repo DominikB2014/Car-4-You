@@ -131,6 +131,7 @@ public class Properties extends JPanel {
 		if(chckbxPerformance.isSelected()) Gui1.properties.add(new Tuple(Property.Engine, normalize(performText.getText())));
 		if(chckbxLuxury.isSelected()) Gui1.properties.add(new Tuple(Property.Make, normalize(luxuryText.getText())));
 		if(chckbxMileage.isSelected()) Gui1.properties.add(new Tuple(Property.Mileage, normalize(mileageText.getText())));
+		printConsole();
 	}
 	
 	private int normalize(String string) {

@@ -113,9 +113,10 @@ public class Gui1 {
 						initDataPanel.setVisible(false);
 						propertyPanel.setVisible(true);
 						i++;
+						break;
 					case 4:
 						propertyPanel.getProperties();
-						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property"); i--;}
+						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
 							i++;
 							propertyPanel.setVisible(false);
