@@ -11,7 +11,7 @@ public class Tuple {
 	
 	@Override
 	public String toString () {
-		return property.toString() + weight;
+		return property.toString() + " " + weight;
 }
 	public Property getProperty() {
 		return property;
