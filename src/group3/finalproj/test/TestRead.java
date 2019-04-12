@@ -39,12 +39,22 @@ public class TestRead {
 		ReadData.cars.clear();
 		types.clear();
 	}
+	/***************************************************************************
+	 * Last Category - 	Last category may cause problems with scanner (Read line error)
+	 ***************************************************************************/
 	
-	//Last category (alphabetically) may cause problems with scanner
 	@Test
-	public void testLastCategory() {
+	public void testLastCategory_New() {
 		types.add(CarType.Wagon);
 		ReadData.readCars("data/newCars.csv", types);
+		assert(isCorrectCategories(types));
+		assert(isInPriceRange(0,Integer.MAX_VALUE));
+	}
+	
+	@Test
+	public void testLastCategory_Used() {
+		types.add(CarType.Wagon);
+		ReadData.readCars("data/usedCars.csv", types);
 		assert(isCorrectCategories(types));
 		assert(isInPriceRange(0,Integer.MAX_VALUE));
 	}
