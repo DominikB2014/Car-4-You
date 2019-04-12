@@ -10,9 +10,6 @@ import java.text.NumberFormat;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField.AbstractFormatter;
 
 import group3.finalproj.car.Property;
 import group3.finalproj.car.Tuple;
