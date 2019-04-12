@@ -65,7 +65,32 @@ public class ReadData {
 		}catch (FileNotFoundException e) {System.out.println("File not Found");}
 		return false;
 	}
+	
+	   /***************************************************************************
+	    * Functions retrieve information about the read data
+	    ***************************************************************************/
+	
+	public static int getMaxPrice() {
+		int x = 0;
+		for (int i = 0; i < cars.size(); i++) {
+			if ((int) cars.get(i).get(Property.Price) > x) {
+				x = (int) cars.get(i).get(Property.Price);
+			}
+		}
+		return x;
+	}
+	
+	public static int getMaxMileage() {
+		int x = 0;
+		for (int i = 0; i < cars.size(); i++) {
+			if ((int) cars.get(i).get(Property.Mileage) > x) {
+				x = (int) cars.get(i).get(Property.Mileage);
+			}
 
+		}
+		return x;
+	}
+	
 	/**
 	 * Testing for read
 	 * @param args - command line argument
