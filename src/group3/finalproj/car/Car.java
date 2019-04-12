@@ -78,7 +78,11 @@ public class Car{
 		int score = 0;
 		for (Tuple tup: property_Rank) {
 			if (tup.getProperty().equals(Property.CityMPG)) {
-				score += (int)this.get(Property.CityMPG) / 45 * tup.getRank();
+				if ((int)this.get(Property.CityMPG) > 50) {
+					score += 50 / 45 * tup.getRank();
+				} else {
+					score += (int)this.get(Property.CityMPG) / 45 * tup.getRank();
+				}
 			}
 			if (tup.getProperty().equals(Property.Price)) {
 				if (maxPrice != Integer.MAX_VALUE) {
