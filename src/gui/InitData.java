@@ -27,7 +27,7 @@ public class InitData extends JPanel {
 		setLayout(null);
 		setVisible(false);
 
-		lblInitalizing = new JLabel("Loading Data: Please Wait");
+		lblInitalizing = new JLabel("Press Next to Initialize Data: This may take long");
 		lblInitalizing.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInitalizing.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInitalizing.setBounds(10, 11, 468, 37);

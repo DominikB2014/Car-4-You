@@ -122,6 +122,7 @@ public class Gui1 {
 					i--;
 					btnNext.setVisible(true);
 				}
+				progressBar.setValue(i);
 			}
 		});
 		btnBack.setBounds(10, 298, 89, 23);
@@ -129,6 +130,7 @@ public class Gui1 {
 		
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Graph G = null;
 				switch(i){
 					case 0:
 						typesPanel.getTypes();
@@ -143,17 +145,17 @@ public class Gui1 {
 					case 1:
 						conditionPricePanel.setPriceCondition();
 						conditionPricePanel.setVisible(false);
+						initDataPanel.lblInitalizing.setVisible(true);
+						initDataPanel.lblDone.setVisible(false);
 						initDataPanel.setVisible(true);
 						i++;
 						progressBar.setValue(i);
-						if(initDataPanel.initData()) {
-							initDataPanel.lblInitalizing.setVisible(false);
-							initDataPanel.lblDone.setVisible(true);
-							i++;
-						}
 						break;
 					case 2:
 						if(initDataPanel.initData()) i++;
+						G = GraphGenerator.graphMake(3);
+						initDataPanel.lblInitalizing.setVisible(false);
+						initDataPanel.lblDone.setVisible(true);
 						break;
 					case 3:
 						initDataPanel.setVisible(false);
@@ -164,8 +166,7 @@ public class Gui1 {
 						propertyPanel.getProperties();
 						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
-							Graph G = GraphGenerator.graphMake(3);
-							outputCars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 0, maxPrice, properties));
+							outputCars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 3, maxPrice, properties));
 							i++;
 							propertyPanel.setVisible(false);
 							//Outputs Car JFrames

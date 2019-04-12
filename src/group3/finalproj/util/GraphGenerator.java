@@ -62,6 +62,10 @@ public class GraphGenerator {
 		return fiveBest;
 	}
 	
+	   /***************************************************************************
+	    * Helper functions
+	    ***************************************************************************/
+	
 	private static  boolean calcableProperty(Property p) {
 		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 
 				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
