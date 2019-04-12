@@ -52,14 +52,23 @@ public class TestRead {
 	/***************************************************************************
 	 * Data Tests - Tests if the dataread matches what is specified to be read
 	 ***************************************************************************/
-
+	
 	@Test
-	public void testTypesAndPriceRange() {
+	public void testTypesAndPriceRange_Used() {
 		types.add(CarType.Coupe);
 		types.add(CarType.Sedan);
-		ReadData.readCars("data/newCars.csv", types, 0, 40000);
+		ReadData.readCars("data/usedCars.csv", types, 5000, 40000);
 		assert(isCorrectCategories(types));
-		assert(isInPriceRange(0,40000));
+		assert(isInPriceRange(5000,40000));
+	}
+
+	@Test
+	public void testTypesAndPriceRange_New() {
+		types.add(CarType.Coupe);
+		types.add(CarType.Sedan);
+		ReadData.readCars("data/newCars.csv", types, 5000, 40000);
+		assert(isCorrectCategories(types));
+		assert(isInPriceRange(5000,40000));
 	}
 	
 	/***************************************************************************
