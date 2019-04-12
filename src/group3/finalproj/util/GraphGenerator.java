@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import group3.finalproj.car.*;
 import group3.finalproj.io.ReadData;
 
-public class graphGenerator {
-	
-	public static ArrayList<Car> cars = ReadData.cars;
+public class GraphGenerator {
 	
 	public static Graph graphMake(int n) {
 		Graph G = new Graph(ReadData.cars.size());

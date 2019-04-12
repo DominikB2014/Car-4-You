@@ -148,7 +148,7 @@ public class Car{
 	private int numCyl() {
 		String cylinders[] = {"4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 "}; //Possible number of cylinders
 		for (String cyl: cylinders) {
-			if (((String)this.get(Property.Engine)).contains("4 ")) return Integer.parseInt(cyl.substring(0, cyl.length()-1));
+			if (((String)this.get(Property.Engine)).contains("4 ")) return Integer.parseInt(cyl.substring(0, cyl.length()-1)); //Strips the space, converts to integers
 		}
 		return -1;
 		
