@@ -9,119 +9,79 @@ import group3.finalproj.io.ReadData;
  * Data type used to represent a car
  * @author Dominik Buszowiecki
  */
-public class Car{
-	
-	ArrayList<Car> carList= ReadData.cars;
-	
-	//Maps a category to its value of this car
+public class Car {
+
+	ArrayList<Car> carList = ReadData.cars;
+
+	// Maps a category to its value of this car
 	private TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
 
 	/**
 	 * Constructs a car based on its categories
+	 * 
 	 * @param properties An array of categories
-	 * @param values A array of values, each corresponding to a category
-	 * in the categories array
+	 * @param values     A array of values, each corresponding to a category in the
+	 *                   categories array
 	 */
 	public Car(String[] properties, String[] values) {
 		for (int i = 0; i < properties.length; i++) {
-			
-			// If the property is numeric, convert value to Integer and add it to the TreeMap
-			if(Property.isNumericProperty(Property.valueOf(properties[i]))) {
-				//If the value associated with a numeric property is missing in the dataset, treat it as 0
+
+			// If the property is numeric, convert value to Integer and add it to the
+			// TreeMap
+			if (Property.isNumericProperty(Property.valueOf(properties[i]))) {
+				// If the value associated with a numeric property is missing in the dataset,
+				// treat it as 0
 				if (values[i].equals(""))
 					this.properties.put(Property.valueOf(properties[i]), 0);
-				else this.properties.put(Property.valueOf(properties[i]), Integer.parseInt(values[i]));
+				else
+					this.properties.put(Property.valueOf(properties[i]), Integer.parseInt(values[i]));
 			}
-			
-			//If the category is not numeric, add its string value			
-			else this.properties.put(Property.valueOf(properties[i]), values[i]);
+
+			// If the category is not numeric, add its string value
+			else
+				this.properties.put(Property.valueOf(properties[i]), values[i]);
 		}
 	}
-	
+
 	/**
 	 * Compares this Car to another based on a property
+	 * 
 	 * @param property - The property to compare
-	 * @param car - Another car to compare to
-	 * @return 0 if the properties are equal, -1 if this property is less that the compared, otherwise 1
+	 * @param car      - Another car to compare to
+	 * @return 0 if the properties are equal, -1 if this property is less that the
+	 *         compared, otherwise 1
 	 */
 	public int compareTo(Property property, Car car) {
 		Object a = properties.get(property);
 		Object b = car.properties.get(property);
 		if (Property.isNumericProperty(property)) {
-			if ((int)a > (int)b) return 1;
-			if ((int)a < (int)b) return -1;
+			if ((int) a > (int) b)
+				return 1;
+			if ((int) a < (int) b)
+				return -1;
 			return 0;
-		}
-		else return ((String)a).compareTo((String)b);
+		} else
+			return ((String) a).compareTo((String) b);
 	}
-	
+
 	/**
 	 * Retrieves a particular property of a car
+	 * 
 	 * @param property - A property of a car
 	 * @return The value of that property
 	 */
 	public Object get(Property property) {
 		return properties.get(property);
 	}
-	
+
 	/**
 	 * Determines if a property has been set in a car
+	 * 
 	 * @param property A property of a car
 	 * @return true if the property has been set
 	 */
 	public boolean hasProperty(Property property) {
 		return properties.containsKey(property);
-	}
-	
-	public int scoreCalc(Property property) {
-		ArrayList<Tuple<Property, Integer>> prop = new ArrayList<Tuple<Property, Integer>>();
-		prop.add(new Tuple<Property, Integer>(property, 10));
-		return scoreCalc(prop, Integer.MAX_VALUE);
-	}
-	
-	public int scoreCalc(ArrayList<Tuple<Property, Integer>> property_Rank, int maxPrice) {
-		int score = 0;
-		for (Tuple<Property, Integer> tup: property_Rank) {
-			if (tup.getProperty().equals(Property.CityMPG)) {
-				if ((int)this.get(Property.CityMPG) > 50) {
-					score += 50 / 45 * tup.getRank();
-				} else {
-					score += (int)this.get(Property.CityMPG) / 45 * tup.getRank();
-				}
-			}
-			if (tup.getProperty().equals(Property.Price)) {
-				if (maxPrice != Integer.MAX_VALUE) {
-					score += (1 - ((int)this.get(Property.Price)/maxPrice)) * tup.getRank();
-				} else {
-					score += (1 - ((int)this.get(Property.Price)/ReadData.getMaxPrice())) * tup.getRank();
-				}
-			}
-			if (tup.getProperty().equals(Property.Engine)) {
-				score += (this.numCyl() / 12) * tup.getRank();  
-			}
-			if (tup.getProperty().equals(Property.Make)) {
-				String[] names = {"Aston Martin", "Audi", "Bently", "BMW", "Ferrari", "Genesis", "Infiniti", "Jaguar", "Land Rover", "Lexus", "Maybach", "Maserati", "Lincoln", "McLaren", "Mercedes-Benz", "Porsche", "Rolls-Royce", "Tesla"};
-				for(int i = 0; i < names.length; i++){
-				    if (((String)this.get(Property.Make)).equals(names[i])) {
-				    score += 1 * tup.getRank();
-				    }
-				}
-			}
-			if (tup.getProperty().equals(Property.Mileage)) {
-				if (this.hasProperty(Property.Mileage)){
-			        if (!((int)this.get(Property.Mileage) == 0)){
-			            int x = ReadData.getMaxMileage();
-			            score += (1-(x/(int)this.get(Property.Mileage))) * tup.getRank();
-			        }
-				}
-			}
-			if (tup.getProperty().equals(Property.Drivetrain)) {
-				if (((String)this.get(Property.Drivetrain)).equals("AWD")) {
-					score += 1 * tup.getRank();
-				}
-			}
-		}
-		return score;
 	}
 
 	/**
@@ -129,29 +89,116 @@ public class Car{
 	 */
 	@Override
 	public String toString() {
-		return properties.get(Property.Year) + " " + 
-				properties.get(Property.Make) + " " 
-					+ properties.get(Property.Model) + " for: $" 
-						+ properties.get(Property.Price);
+		return properties.get(Property.Year) + " " + properties.get(Property.Make) + " "
+				+ properties.get(Property.Model) + " for: $" + properties.get(Property.Price);
 	}
-	
+
+	/**
+	 * Adds a new property or updates a properties value
+	 * 
+	 * @param property - a property of a car
+	 * @param value    - the value corresponding to that property
+	 */
 	public void addProperty(Property property, Object value) {
-		if(Property.isNumericProperty(property)) properties.put(property, (int)value);
-		else properties.put(property, value);
+		if (Property.isNumericProperty(property))
+			properties.put(property, (int) value);
+		else
+			properties.put(property, value);
 	}
-	
-	
+
+	/**
+	 * Returns how "good" a certain property is of a car
+	 * 
+	 * @param property - the Car property of interest
+	 * @return the score of the property (higher is better)
+	 */
+	public int scoreCalc(Property property) {
+		return rankProperty(property, 10, Integer.MAX_VALUE);
+	}
+
+	/**
+	 * Returns how "good" a set of properties are in a car based on the user's
+	 * preferences
+	 * 
+	 * @param property_Rank - a list of the properties and how highly the user ranks
+	 *                      the propery
+	 * @param maxPrice      - The maximum price a user is willing to spend on a car
+	 * @return the score of a set of properties (higher is betters)
+	 */
+	public int scoreCalc(ArrayList<Tuple<Property, Integer>> property_Rank, int maxPrice) {
+		int score = 0;
+		for (Tuple<Property, Integer> tup : property_Rank) {
+			score += rankProperty(tup.getProperty(), tup.getRank(), maxPrice);
+		}
+		return score;
+	}
+
+	/***************************************************************************
+	 * Helper functions to calculate the score.
+	 ***************************************************************************/
+
 	/**
 	 * Returns the number of cylinders a car has
+	 * 
 	 * @return the number of cylinder a car has, if not known -1
 	 */
 	private int numCyl() {
-		String cylinders[] = {"4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 "}; //Possible number of cylinders
-		for (String cyl: cylinders) {
-			if (((String)this.get(Property.Engine)).contains("4 ")) return Integer.parseInt(cyl.substring(0, cyl.length()-1)); //Strips the space, converts to integers
+		String cylinders[] = { "4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 " }; // Possible number of cylinders
+		for (String cyl : cylinders) {
+			if (((String) this.get(Property.Engine)).contains("4 "))
+				return Integer.parseInt(cyl.substring(0, cyl.length() - 1)); // Strips the space, converts to integers
 		}
 		return -1;
-		
+	}
+
+	private int rankProperty(Property property, int rank, int maxPrice) {
+		switch (property) {
+
+		case CityMPG:
+			if ((int) this.get(Property.CityMPG) > 50) {
+				return 50 / 45 * rank;
+			} else {
+				return (int) this.get(Property.CityMPG) / 45 * rank;
+			}
+
+		case Price:
+			if (maxPrice != Integer.MAX_VALUE) {
+				return (1 - ((int) this.get(Property.Price) / maxPrice)) * rank;
+			} else {
+				return (1 - ((int) this.get(Property.Price) / ReadData.getMaxPrice())) * rank;
+			}
+
+		case Engine:
+			return (this.numCyl() / 12) * rank;
+
+		case Make:
+			String[] names = { "Aston Martin", "Audi", "Bently", "BMW", "Ferrari", "Genesis", "Infiniti", "Jaguar",
+					"Land Rover", "Lexus", "Maybach", "Maserati", "Lincoln", "McLaren", "Mercedes-Benz", "Porsche",
+					"Rolls-Royce", "Tesla" };
+			for (int i = 0; i < names.length; i++) {
+				if (((String) this.get(Property.Make)).equals(names[i])) {
+					return 1 * rank;
+				}
+			}
+			return 0;
+
+		case Mileage:
+			if (this.hasProperty(Property.Mileage)) {
+				if (!((int) this.get(Property.Mileage) == 0)) {
+					int x = ReadData.getMaxMileage();
+					return (1 - (x / (int) this.get(Property.Mileage))) * rank;
+				}
+			}
+			return 0;
+
+		case Drivetrain:
+			if (((String) this.get(Property.Drivetrain)).equals("AWD")) {
+				return 1 * rank;
+			}
+			return 0;
+		default:
+			return 0;
+		}
 	}
 
 }
