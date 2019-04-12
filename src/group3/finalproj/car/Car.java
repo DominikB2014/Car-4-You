@@ -68,6 +68,12 @@ public class Car{
 		return properties.containsKey(property);
 	}
 	
+	public int scoreCalc(Property property) {
+		ArrayList<Tuple> prop = new ArrayList<Tuple>();
+		prop.add(new Tuple(property, 10));
+		return scoreCalc(prop, Integer.MAX_VALUE);
+	}
+	
 	public int scoreCalc(ArrayList<Tuple> property_Rank, int maxPrice) {
 		int score = 0;
 		for (Tuple tup: property_Rank) {
