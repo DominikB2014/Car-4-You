@@ -22,6 +22,7 @@ public class graphGenerator {
 							&& calcableProperty(p)) {
 						count++;
 					}
+					
 				}
 				if (count == n) {
 					G.addEdge(i, j);
