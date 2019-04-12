@@ -65,10 +65,12 @@ public class Gui1 {
 		Categories typesPanel = new Categories();
 		Condition conditionPricePanel = new Condition();
 		InitData initDataPanel = new InitData();
+		Properties properties = new Properties();
 		
 		frame.getContentPane().add(typesPanel);
 		frame.getContentPane().add(conditionPricePanel);
 		frame.getContentPane().add(initDataPanel);
+		frame.getContentPane().add(properties);
 		
 		
 		JProgressBar progressBar = new JProgressBar();
@@ -105,6 +107,9 @@ public class Gui1 {
 					case 2:
 						if(initDataPanel.initData()) i++;
 						break;
+					case 3:
+						initDataPanel.setVisible(false);
+						properties.setVisible(true);
 				}
 				progressBar.setValue(i);
 			}
