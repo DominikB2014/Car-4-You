@@ -21,8 +21,7 @@ public class graphGenerator {
 							&& ReadData.cars.get(j).scoreCalc(p) < 11 && ReadData.cars.get(j).scoreCalc(p) > 5
 							&& calcableProperty(p)) {
 						count++;
-					}
-					
+					}	
 				}
 				if (count == n) {
 					G.addEdge(i, j);
