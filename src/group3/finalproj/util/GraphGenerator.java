@@ -26,7 +26,6 @@ public class GraphGenerator {
 				}
 			}
 		}
-		
 		return G;
 	}
 	
