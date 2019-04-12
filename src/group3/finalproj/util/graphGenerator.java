@@ -1,7 +1,6 @@
 package group3.finalproj.util;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 
 import group3.finalproj.car.*;
 import group3.finalproj.io.ReadData;
