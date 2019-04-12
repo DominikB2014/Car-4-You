@@ -142,6 +142,7 @@ public class Graph {
         E++;
         adj[v].add(w);
         adj[w].add(v);
+        System.out.print("Edge added.");
     }
 
 
