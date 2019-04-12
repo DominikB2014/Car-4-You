@@ -66,14 +66,16 @@ public class GraphGenerator {
 	
 	private static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
 		int source = 0;
+		ArrayList<Car> tempCars = new ArrayList<Car>();
 		for (Car c: cars) {
 			if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 4)) {
 				source = cars.indexOf(c);
 			}
 			else {
-				cars.remove(c);
+				tempCars.add(c);
 			}
 		}
+		cars = (ArrayList<Car>) tempCars.clone();
 		return source;
 	}
 	
@@ -100,7 +102,6 @@ public class GraphGenerator {
 	    ***************************************************************************/
 	
 	public static void main(String args[]) {
-		int source = 3;
 		
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
 		types.add(CarType.Coupe);
@@ -110,15 +111,16 @@ public class GraphGenerator {
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
+		int source = GraphGenerator.findSource(properties, 40000);
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
 		System.out.println("\nSource Node: " + cars.get(source));
 		
-		ArrayList<Car> cars = new ArrayList<Car>();
+		ArrayList<Car> best = new ArrayList<Car>();
 		
 		System.out.println("Recommended Cars");
-		cars = GraphGenerator.masterScrum(properties, 40000, 3);
-		for (Car car: cars) {
+		best = GraphGenerator.masterScrum(properties, 40000, 3);
+		for (Car car: best) {
 			System.out.println(car);
 		}
 	}
