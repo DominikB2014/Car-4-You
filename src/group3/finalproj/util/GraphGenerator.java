@@ -90,9 +90,11 @@ public class GraphGenerator {
 		ReadData.readCars("data/newCars.csv", types, 0, 40000);
 		
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
+		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
-		System.out.println("Properties Selected: " + properties.get(0));
-		System.out.println("Source Node: " + ReadData.cars.get(source));
+		System.out.print("Properties Selected: ");
+		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
+		System.out.println("\nSource Node: " + ReadData.cars.get(source));
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		Graph G = GraphGenerator.graphMake(3);
