@@ -13,8 +13,11 @@ import javax.swing.JCheckBox;
 import java.awt.Font;
 import javax.swing.JProgressBar;
 
+import group3.finalproj.car.Car;
 import group3.finalproj.car.CarType;
+import group3.finalproj.car.Property;
 import group3.finalproj.car.Tuple;
+import group3.finalproj.io.ReadData;
 
 /**
  * GUI (JFrame) for the entire program
@@ -25,12 +28,14 @@ public class Gui1 {
 
 	private JFrame frame;
 	private int i = 0;
+	private Output[] carPanes = new Output[5];
 	
 	protected static ArrayList<CarType> types = new ArrayList<CarType>();
 	protected static int minPrice;
 	protected static int maxPrice;
 	protected static int files; //0 = new Cars, 1 = used Cars, 2 = all
 	protected static ArrayList<Tuple> properties = new ArrayList<Tuple>();
+	protected static ArrayList<Car> outputCars = new ArrayList<Car>();
 
 	/**
 	 * Launch the application.
@@ -120,7 +125,14 @@ public class Gui1 {
 						else {
 							i++;
 							propertyPanel.setVisible(false);
+							//Outputs Car JFrames
+							for (int i = 0; i < 5; i ++) {
+								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
+								frame.getContentPane().add(carPanes[i]);
+							}
 						}
+						break;
+					case 5:
 						
 				}
 				progressBar.setValue(i);
@@ -128,5 +140,9 @@ public class Gui1 {
 		});
 		btnNext.setBounds(425, 298, 89, 23);
 		frame.getContentPane().add(btnNext);	
+	}
+	
+	private void testOutputGUI() {
+		ReadData.cars.
 	}
 }

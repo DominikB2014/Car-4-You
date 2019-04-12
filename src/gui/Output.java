@@ -1,40 +1,41 @@
 package gui;
 
+import java.awt.Font;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import group3.finalproj.car.Car;
 import group3.finalproj.car.Property;
 
 public class Output extends JPanel {
+	
+	private JLabel lblSelectProperties;
 
 	/**
 	 * Create the panel.
 	 */
-	public Output(ArrayList<Car> cars) {
-		int numCars = 5;
+	public Output(String car, String link) {
 		
 		setBounds(10, 11, 504, 276);
 		setLayout(null);
 		setVisible(false);
-		String[] carText = new String[numCars];
-		String[] links = new String[numCars];
 		
-		//Adds string representation of each car
-		for (int j = 0; j < numCars && j < cars.size(); j++) {
-			carText[j] = j + ": " + cars.get(j).toString();
-			links[j] = (String)cars.get(j).get(Property.Link);
-		}
-		//If less than 5 cars returned, create empty car string representations
-		for(int i = 5; i > numCars - cars.size(); i++) {
-			carText[i] = i + ": ";
-			links[i] = "";
-		}
+		lblSelectProperties = new JLabel("Here are the Perfect Cars for you!");
+		lblSelectProperties.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectProperties.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSelectProperties.setBounds(10, 11, 468, 37);
+		add(lblSelectProperties);
 		
+		JLabel lblNewLabel = new JLabel(car);
+		lblNewLabel.setBounds(20, 81, 92, 26);
+		add(lblNewLabel);
 		
-		
+		JLabel lblLink = new JLabel(link);
+		lblLink.setBounds(20, 128, 92, 26);
+		add(lblLink);
 		
 	}
-
 }
