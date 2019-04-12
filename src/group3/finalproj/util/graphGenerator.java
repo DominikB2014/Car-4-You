@@ -47,8 +47,17 @@ public class graphGenerator {
 	}
 	
 	public static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
-		
-		return ;
+		ArrayList<Car> bestCar = new ArrayList<Car>();
+		for (int i = 0 ; i < carTuples.size(); i++) {
+			carTuples.get(i).getProperty().addProperty(Property.Score, carTuples.get(i).getRank());
+			bestCar.add(carTuples.get(i).getProperty());
+		}
+		Heap.sort(bestCar, Property.Score);
+		ArrayList<Car> fiveBest = new ArrayList<Car>();
+		for (int i = bestCar.size(); i > bestCar.size() - 5 ; i++) {
+			fiveBest.add(bestCar.get(i));
+		}
+		return fiveBest;
 	}
 	
 	public static  boolean calcableProperty(Property p) {
