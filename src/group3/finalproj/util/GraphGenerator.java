@@ -72,6 +72,8 @@ public class GraphGenerator {
 	}
 	
 	public static void main(String args[]) {
+		int source = 3;
+		
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
 		types.add(CarType.Coupe);
 		types.add(CarType.Sedan);
@@ -80,9 +82,13 @@ public class GraphGenerator {
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
+		System.out.println("Source Node: " + ReadData.cars.get(source));
+		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		Graph G = GraphGenerator.graphMake(3);
-		cars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 0, 40000, properties));
+		
+		
+		cars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, source, 40000, properties));
 		for (Car car: cars) {
 			System.out.println(car);
 		}
