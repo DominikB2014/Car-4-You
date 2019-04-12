@@ -138,4 +138,11 @@ public class Properties extends JPanel {
 		if (Integer.parseInt(string) > 10) return 10;
 		return Integer.parseInt(string);
 	}
+	
+	private void printConsole() {
+		System.out.println("Properties Selected");
+		for (Tuple tuple: Gui1.properties) {
+			System.out.println(tuple);
+		}
+	}
 }
