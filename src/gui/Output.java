@@ -30,11 +30,11 @@ public class Output extends JPanel {
 		add(lblSelectProperties);
 		
 		JLabel lblNewLabel = new JLabel(car);
-		lblNewLabel.setBounds(20, 81, 92, 26);
+		lblNewLabel.setBounds(20, 81, 599, 26);
 		add(lblNewLabel);
 		
 		JLabel lblLink = new JLabel(link);
-		lblLink.setBounds(20, 128, 92, 26);
+		lblLink.setBounds(20, 128, 616, 26);
 		add(lblLink);
 		
 	}

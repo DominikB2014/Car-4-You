@@ -122,12 +122,12 @@ public class Properties extends JPanel {
 	
 	public void getProperties() {
 		Gui1.properties.clear();
-		if(chckbxEcon.isSelected()) Gui1.properties.add(new Tuple(Property.CityMPG, normalize(econText.getText())));
-		if(chckbxAffordability.isSelected()) Gui1.properties.add(new Tuple(Property.Price, normalize(affordText.getText())));
-		if(chckbxAllWheelDrive.isSelected()) Gui1.properties.add(new Tuple(Property.Drivetrain, normalize(awdText.getText())));
-		if(chckbxPerformance.isSelected()) Gui1.properties.add(new Tuple(Property.Engine, normalize(performText.getText())));
-		if(chckbxLuxury.isSelected()) Gui1.properties.add(new Tuple(Property.Make, normalize(luxuryText.getText())));
-		if(chckbxMileage.isSelected()) Gui1.properties.add(new Tuple(Property.Mileage, normalize(mileageText.getText())));
+		if(chckbxEcon.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.CityMPG, normalize(econText.getText())));
+		if(chckbxAffordability.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.Price, normalize(affordText.getText())));
+		if(chckbxAllWheelDrive.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.Drivetrain, normalize(awdText.getText())));
+		if(chckbxPerformance.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.Engine, normalize(performText.getText())));
+		if(chckbxLuxury.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.Make, normalize(luxuryText.getText())));
+		if(chckbxMileage.isSelected()) Gui1.properties.add(new Tuple<Property, Integer>(Property.Mileage, normalize(mileageText.getText())));
 		printConsole();
 	}
 	
@@ -139,7 +139,7 @@ public class Properties extends JPanel {
 	
 	private void printConsole() {
 		System.out.println("Properties Selected");
-		for (Tuple tuple: Gui1.properties) {
+		for (Tuple<?, ?> tuple: Gui1.properties) {
 			System.out.println(tuple);
 		}
 	}
