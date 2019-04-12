@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import group3.finalproj.car.*;
 import group3.finalproj.io.ReadData;
 
+/**
+ * 
+ * @author Pedram Yazdinia
+ *
+ */
 public class GraphGenerator {
 	
 	public static Graph graphMake(int n) {
@@ -71,6 +76,10 @@ public class GraphGenerator {
 		}
 		return -1;
 	}
+	
+	   /***************************************************************************
+	    * Main method for testing
+	    ***************************************************************************/
 	
 	public static void main(String args[]) {
 		int source = 3;

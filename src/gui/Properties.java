@@ -16,7 +16,7 @@ import group3.finalproj.car.Tuple;
 
 
 /**
- * GUI for property selection
+ * JFrame for property selection
  * @author Dominik Buszowiecki
  *
  */

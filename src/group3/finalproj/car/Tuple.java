@@ -1,5 +1,12 @@
 package group3.finalproj.car;
 
+/**
+ * 
+ * @author Pedram Yazdinia
+ *
+ * @param <X>
+ * @param <Y>
+ */
 public class Tuple<X, Y> {
 	public final X property;
 	public final Y weight;

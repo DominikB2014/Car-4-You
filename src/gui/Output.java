@@ -10,6 +10,11 @@ import javax.swing.SwingConstants;
 import group3.finalproj.car.Car;
 import group3.finalproj.car.Property;
 
+/**
+ * JFrame for final result of program
+ * @author Dominik Buszowiecki
+ *
+ */
 public class Output extends JPanel {
 	
 	private JLabel lblSelectProperties;

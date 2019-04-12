@@ -71,6 +71,10 @@ public class ReadData {
 	    * Functions retrieve information about the read data
 	    ***************************************************************************/
 	
+	/**
+	 * Returns the price of the most expensive car in the data
+	 * @return a integer of the highest price
+	 */
 	public static int getMaxPrice() {
 		int x = 0;
 		for (int i = 0; i < cars.size(); i++) {
@@ -81,6 +85,10 @@ public class ReadData {
 		return x;
 	}
 	
+	/**
+	 * Returns the mileage of the car with the most mileage in the data
+	 * @return a integer of the highest mileage
+	 */
 	public static int getMaxMileage() {
 		int x = 0;
 		for (int i = 0; i < cars.size(); i++) {
@@ -91,6 +99,10 @@ public class ReadData {
 		}
 		return x;
 	}
+	
+	   /***************************************************************************
+	    * Main method for testing
+	    ***************************************************************************/
 	
 	/**
 	 * Testing for read
