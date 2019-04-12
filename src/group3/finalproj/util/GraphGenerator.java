@@ -45,9 +45,9 @@ public class GraphGenerator {
 	public static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
 		System.out.println("Potential Cars: " + carTuples.size());
 		ArrayList<Car> bestCar = new ArrayList<Car>();
-		for (int i = 0 ; i < carTuples.size(); i++) {
-			carTuples.get(i).getProperty().addProperty(Property.Score, carTuples.get(i).getRank());
-			bestCar.add(carTuples.get(i).getProperty());
+		for (Tuple<Car, Integer> tuple: carTuples) {
+			tuple.getProperty().addProperty(Property.Score, tuple.getRank());
+			bestCar.add(tuple.getProperty());
 		}
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
