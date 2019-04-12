@@ -12,6 +12,7 @@ public class GraphGenerator {
 		for (int i = 0; i < ReadData.cars.size(); i++) {
 			for (int j = i + 1; j < ReadData.cars.size(); j++) {
 				int count = 0;
+				System.out.print("Hello");
 				for (Property p: Property.values()) {
 					if (ReadData.cars.get(i).hasProperty(p) && ReadData.cars.get(j).hasProperty(p) 
 							&& ReadData.cars.get(i).scoreCalc(p) < 11 && ReadData.cars.get(i).scoreCalc(p) > 5
