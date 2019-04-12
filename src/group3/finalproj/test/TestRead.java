@@ -14,6 +14,11 @@ import group3.finalproj.car.CarType;
 import group3.finalproj.car.Property;
 import group3.finalproj.io.ReadData;
 
+/**
+ * JUnit test class which tests if files are read properly
+ * @author Dominik Buszowiecki
+ *
+ */
 public class TestRead {
 	
 	ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!
