@@ -45,7 +45,7 @@ public class ReadData {
 				if (!scanner.hasNext()) {scanner.close(); return false;}
 				
 				//Linear Search for first occurence of cartype
-				while (!(CarType.valueOf(car[4]) == type)) car = scanner.nextLine().split(",");
+				while (!(CarType.valueOf(car[4]) == type) && scanner.hasNextLine()) car = scanner.nextLine().split(",");
 				
 				//When first occurence of car type is found, add all cars of that type
 				System.out.println("Found First: " + type + "\n");
@@ -97,8 +97,8 @@ public class ReadData {
 	 */
 	public static void main(String args[]) {
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!
-		types.add(CarType.CargoVan);
 		types.add(CarType.Coupe);
+		types.add(CarType.Sedan);
 		readCars("data/newCars.csv", types, 0, 40000);
 		
 	}

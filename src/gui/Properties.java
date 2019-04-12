@@ -139,7 +139,7 @@ public class Properties extends JPanel {
 	
 	private void printConsole() {
 		System.out.println("Properties Selected");
-		for (Tuple<?, ?> tuple: Gui1.properties) {
+		for (Tuple<Property, Integer> tuple: Gui1.properties) {
 			System.out.println(tuple);
 		}
 	}
