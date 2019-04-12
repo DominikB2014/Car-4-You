@@ -3,11 +3,15 @@ package group3.finalproj.car;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import group3.finalproj.io.ReadData;
+
 /*
  * Data type used to represent a car
  * @author Dominik Buszowiecki
  */
 public class Car{
+	
+	ArrayList<Car> carList= ReadData.cars;
 	
 	//Maps a category to its value of this car
 	private TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
@@ -64,8 +68,45 @@ public class Car{
 		return properties.containsKey(property);
 	}
 	
-	public int scoreCalc(ArrayList<Tuple> a) {
-		return 1;
+	public int scoreCalc(ArrayList<Tuple> property_Rank, int maxPrice) {
+		int score = 0;
+		for (Tuple tup: property_Rank) {
+			if (tup.getProperty().equals(Property.CityMPG)) {
+				score += (int)this.get(Property.CityMPG) / 45 * tup.getRank();
+			}
+			if (tup.getProperty().equals(Property.Price)) {
+				if (maxPrice != Integer.MAX_VALUE) {
+					score += (1 - ((int)this.get(Property.Price)/maxPrice)) * tup.getRank();
+				} else {
+					score += (1 - ((int)this.get(Property.Price)/this.maxPriceFinder())) * tup.getRank();
+				}
+			}
+			if (tup.getProperty().equals(Property.Engine)) {
+				score += (this.numCyl() / 12) * tup.getRank();  
+			}
+			if (tup.getProperty().equals(Property.Make)) {
+				String[] names = {"Aston Martin", "Audi", "Bently", "BMW", "Ferrari", "Genesis", "Infiniti", "Jaguar", "Land Rover", "Lexus", "Maybach", "Maserati", "Lincoln", "McLaren", "Mercedes-Benz", "Porsche", "Rolls-Royce", "Tesla"};
+				for(int i = 0; i < names.length; i++){
+				    if (((String)this.get(Property.Make)).equals(names[i])) {
+				    score += 1 * tup.getRank();
+				    }
+				}
+			}
+			if (tup.getProperty().equals(Property.Mileage)) {
+				if (this.hasProperty(Property.Mileage)){
+			        if (!((int)this.get(Property.Mileage) == 0)){
+			            int x = this.maxMileageFinder();
+			            score += (1-(x/(int)this.get(Property.Mileage))) * tup.getRank();
+			        }
+				}
+			}
+			if (tup.getProperty().equals(Property.Drivetrain)) {
+				if (((String)this.get(Property.Drivetrain)).equals("AWD")) {
+					score += 1 * tup.getRank();
+				}
+			}
+		}
+		return score;
 	}
 
 	/**
@@ -78,4 +119,54 @@ public class Car{
 					+ properties.get(Property.Model) + " for: $" 
 						+ properties.get(Property.Price);
 	}
+	
+	public int numCyl() {
+		if (((String)this.get(Property.Engine)).contains("4 ")){
+			return 4;
+		}
+		else if (((String)this.get(Property.Engine)).contains("6 ")){
+			return 6;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("8 ")){
+			return 8;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("10 ")){
+			return 10;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("12 ")){
+			return 12;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("14 ")){
+			return 14;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("16 ")){
+			return 16;
+		} 
+		else if (((String)this.get(Property.Engine)).contains("18 ")){
+			return 18;
+		} 
+		return -1;
+	}
+	
+	public int maxPriceFinder() {
+		int x = 0;
+		for (int i = 0; i < carList.size(); i++) {
+			if ((int) carList.get(i).get(Property.Price) > x) {
+				x = (int) carList.get(i).get(Property.Price);
+			}
+		}
+		return x;
+	}
+	
+	public int maxMileageFinder() {
+		int x = 0;
+		for (int i = 0; i < carList.size(); i++) {
+			if ((int) carList.get(i).get(Property.Mileage) > x) {
+				x = (int) carList.get(i).get(Property.Mileage);
+			}
+
+		}
+		return x;
+	}
+
 }

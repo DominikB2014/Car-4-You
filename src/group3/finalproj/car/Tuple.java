@@ -9,8 +9,17 @@ public class Tuple {
 		this.weight = y;
 	}
 	
+<<<<<<< HEAD
 	@Override
 	public String toString () {
 		return property.toString() + weight;
+=======
+	public Property getProperty() {
+		return property;
+	}
+	
+	public int getRank() {
+		return weight;
+>>>>>>> refs/heads/graphingAlgorithm
 	}
 }
