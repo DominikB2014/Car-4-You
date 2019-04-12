@@ -34,7 +34,7 @@ public class Gui1 {
 	protected static int minPrice;
 	protected static int maxPrice;
 	protected static int files; //0 = new Cars, 1 = used Cars, 2 = all
-	protected static ArrayList<Tuple> properties = new ArrayList<Tuple>();
+	protected static ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 	protected static ArrayList<Car> outputCars = new ArrayList<Car>();
 
 	/**
@@ -125,14 +125,18 @@ public class Gui1 {
 						else {
 							i++;
 							propertyPanel.setVisible(false);
+							testOutputGUI();
 							//Outputs Car JFrames
 							for (int i = 0; i < 5; i ++) {
 								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
 								frame.getContentPane().add(carPanes[i]);
 							}
+							carPanes[0].setVisible(true);
 						}
 						break;
 					case 5:
+						carPanes[0].setVisible(false);
+						carPanes[1].setVisible(true);
 						
 				}
 				progressBar.setValue(i);
@@ -143,6 +147,8 @@ public class Gui1 {
 	}
 	
 	private void testOutputGUI() {
-		ReadData.cars.
+		for (int i = 0; i < 5; i++) {
+			outputCars.add(ReadData.cars.get(i));
+		}
 	}
 }
