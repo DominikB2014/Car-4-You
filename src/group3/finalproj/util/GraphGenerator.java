@@ -64,16 +64,6 @@ public class GraphGenerator {
 		return fiveBest;
 	}
 	
-	   /***************************************************************************
-	    * Helper functions
-	    ***************************************************************************/
-	
-	private static  boolean calcableProperty(Property p) {
-		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 
-				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
-				|| p.equals(Property.Model) || p.equals(Property.FuelType));
-	}
-	
 	public static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
 		int source = 0;
 		for (Car c: cars) {
@@ -86,6 +76,24 @@ public class GraphGenerator {
 		}
 		return source;
 	}
+	
+	public static ArrayList<Car> masterScrum(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
+		int source = findSource(property_rank, maxPrice);
+		Graph G = graphMake(n);
+		ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
+		ArrayList<Car> theBest = theBestFive(carTuples);
+		return theBest;
+	}
+	   /***************************************************************************
+	    * Helper functions
+	    ***************************************************************************/
+	
+	private static  boolean calcableProperty(Property p) {
+		return !(p.equals(Property.BodyStyle) || p.equals(Property.HighwayMPG) || p.equals(Property.Link) 
+				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
+				|| p.equals(Property.Model) || p.equals(Property.FuelType));
+	}
+	
 	
 	   /***************************************************************************
 	    * Main method for testing
