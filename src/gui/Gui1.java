@@ -30,7 +30,7 @@ public class Gui1 {
 	protected static int minPrice;
 	protected static int maxPrice;
 	protected static int files; //0 = new Cars, 1 = used Cars, 2 = all
-	protected static ArrayList<Tuple> properties;
+	protected static ArrayList<Tuple> properties = new ArrayList<Tuple>();
 
 	/**
 	 * Launch the application.
@@ -67,12 +67,12 @@ public class Gui1 {
 		Categories typesPanel = new Categories();
 		Condition conditionPricePanel = new Condition();
 		InitData initDataPanel = new InitData();
-		Properties properties = new Properties();
+		Properties propertyPanel = new Properties();
 		
 		frame.getContentPane().add(typesPanel);
 		frame.getContentPane().add(conditionPricePanel);
 		frame.getContentPane().add(initDataPanel);
-		frame.getContentPane().add(properties);
+		frame.getContentPane().add(propertyPanel);
 		
 		
 		JProgressBar progressBar = new JProgressBar();
@@ -111,7 +111,16 @@ public class Gui1 {
 						break;
 					case 3:
 						initDataPanel.setVisible(false);
-						properties.setVisible(true);
+						propertyPanel.setVisible(true);
+						i++;
+					case 4:
+						propertyPanel.getProperties();
+						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property"); i--;}
+						else {
+							i++;
+							propertyPanel.setVisible(false);
+						}
+						
 				}
 				progressBar.setValue(i);
 			}

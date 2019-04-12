@@ -17,7 +17,8 @@ public enum CarType{
 	RegularCabPickup("Regular Cab Pickup"),
 	Sedan("Sedan"),
 	SUV("SUV"),
-	Wagon("Wagon");
+	Wagon("Wagon"),
+	NA("None");
 	
 
 	private String carType;
