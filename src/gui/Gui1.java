@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import java.awt.Font;
+import java.awt.Panel;
+
 import javax.swing.JProgressBar;
 
 import group3.finalproj.car.Car;
@@ -85,8 +87,44 @@ public class Gui1 {
 		progressBar.setBounds(150, 298, 233, 23);
 		frame.getContentPane().add(progressBar);
 		
-		
+		JButton btnBack = new JButton("Back");
 		JButton btnNext = new JButton("Next");
+		
+		btnBack.setVisible(false);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				switch(i) {
+				case 0:
+					btnBack.setVisible(false);
+					break;
+				case 1:
+					typesPanel.setVisible(true);
+					conditionPricePanel.setVisible(false);
+					i--;
+					break;
+				case 3:
+					conditionPricePanel.setVisible(true);
+					initDataPanel.setVisible(false);
+					i=1;
+					break;
+				case 4:
+					conditionPricePanel.setVisible(true);
+					propertyPanel.setVisible(false);
+					i=1;
+					break;
+				default:
+					if (i <= 6) btnBack.setVisible(false);
+					progressBar.setValue(i-5);
+					carPanes[i-5].setVisible(false);
+					carPanes[i-6].setVisible(true);
+					i--;
+					btnNext.setVisible(true);
+				}
+			}
+		});
+		btnBack.setBounds(10, 298, 89, 23);
+		frame.getContentPane().add(btnBack);
+		
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				switch(i){
@@ -97,6 +135,7 @@ public class Gui1 {
 							i++;
 							typesPanel.setVisible(false);
 							conditionPricePanel.setVisible(true);
+							btnBack.setVisible(true);
 						}
 						break;
 					case 1:
@@ -130,13 +169,18 @@ public class Gui1 {
 							for (int i = 0; i < 5; i ++) {
 								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
 								frame.getContentPane().add(carPanes[i]);
+								btnBack.setVisible(false);
 							}
 							carPanes[0].setVisible(true);
 						}
 						break;
-					case 5:
-						carPanes[0].setVisible(false);
-						carPanes[1].setVisible(true);
+					default:
+						carPanes[i-5].setVisible(false);
+						carPanes[i-4].setVisible(true);
+						i++;
+						if (i == 9) btnNext.setVisible(false);
+						btnBack.setVisible(true);
+						break;
 						
 				}
 				progressBar.setValue(i);
@@ -144,6 +188,7 @@ public class Gui1 {
 		});
 		btnNext.setBounds(425, 298, 89, 23);
 		frame.getContentPane().add(btnNext);	
+		
 	}
 	
 	private void testOutputGUI() {

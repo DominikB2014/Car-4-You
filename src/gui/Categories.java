@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 
 import static group3.finalproj.car.CarType.*;
 import javax.swing.JLabel;

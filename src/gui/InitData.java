@@ -47,6 +47,7 @@ public class InitData extends JPanel {
 	 * @return true if the data has been initalized, otherwise false
 	 */
 	public boolean initData() {
+		ReadData.cars.clear();
 		switch(Gui1.files) {
 		case 0: return ReadData.readCars("data/newCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
 		case 1: return ReadData.readCars("data/usedCars.csv", Gui1.types, Gui1.minPrice, Gui1.maxPrice);
