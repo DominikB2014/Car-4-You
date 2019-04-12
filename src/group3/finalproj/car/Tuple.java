@@ -8,4 +8,9 @@ public class Tuple {
 		this.property = x;
 		this.weight = y;
 	}
+	
+	@Override
+	public String toString () {
+		return property.toString() + weight;
+	}
 }
