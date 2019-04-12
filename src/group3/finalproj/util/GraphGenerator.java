@@ -84,7 +84,7 @@ public class GraphGenerator {
 				cars.remove(c);
 			}
 		}
-		return 0;
+		return source;
 	}
 	
 	   /***************************************************************************
