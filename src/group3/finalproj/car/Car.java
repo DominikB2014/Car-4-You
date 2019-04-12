@@ -1,5 +1,6 @@
 package group3.finalproj.car;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 /*
@@ -61,6 +62,10 @@ public class Car{
 	
 	public boolean hasProperty(Property property) {
 		return properties.containsKey(property);
+	}
+	
+	public int scoreCalc(ArrayList<Tuple> a) {
+		return 1;
 	}
 
 	/**
