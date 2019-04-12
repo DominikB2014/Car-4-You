@@ -88,7 +88,7 @@ public class Car{
 				if (maxPrice != Integer.MAX_VALUE) {
 					score += (1 - ((int)this.get(Property.Price)/maxPrice)) * tup.getRank();
 				} else {
-					score += (1 - ((int)this.get(Property.Price)/this.maxPriceFinder())) * tup.getRank();
+					score += (1 - ((int)this.get(Property.Price)/ReadData.getMaxPrice())) * tup.getRank();
 				}
 			}
 			if (tup.getProperty().equals(Property.Engine)) {
@@ -105,7 +105,7 @@ public class Car{
 			if (tup.getProperty().equals(Property.Mileage)) {
 				if (this.hasProperty(Property.Mileage)){
 			        if (!((int)this.get(Property.Mileage) == 0)){
-			            int x = this.maxMileageFinder();
+			            int x = ReadData.getMaxMileage();
 			            score += (1-(x/(int)this.get(Property.Mileage))) * tup.getRank();
 			        }
 				}
@@ -135,54 +135,18 @@ public class Car{
 		else properties.put(property, value);
 	}
 	
+	
+	/**
+	 * Returns the number of cylinders a car has
+	 * @return the number of cylinder a car has, if not known -1
+	 */
 	private int numCyl() {
-		
-		if (((String)this.get(Property.Engine)).contains("4 ")){
-			return 4;
+		String cylinders[] = {"4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 "}; //Possible number of cylinders
+		for (String cyl: cylinders) {
+			if (((String)this.get(Property.Engine)).contains("4 ")) return Integer.parseInt(cyl.substring(0, cyl.length()-1));
 		}
-		else if (((String)this.get(Property.Engine)).contains("6 ")){
-			return 6;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("8 ")){
-			return 8;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("10 ")){
-			return 10;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("12 ")){
-			return 12;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("14 ")){
-			return 14;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("16 ")){
-			return 16;
-		} 
-		else if (((String)this.get(Property.Engine)).contains("18 ")){
-			return 18;
-		} 
 		return -1;
-	}
-	
-	public int maxPriceFinder() {
-		int x = 0;
-		for (int i = 0; i < carList.size(); i++) {
-			if ((int) carList.get(i).get(Property.Price) > x) {
-				x = (int) carList.get(i).get(Property.Price);
-			}
-		}
-		return x;
-	}
-	
-	public int maxMileageFinder() {
-		int x = 0;
-		for (int i = 0; i < carList.size(); i++) {
-			if ((int) carList.get(i).get(Property.Mileage) > x) {
-				x = (int) carList.get(i).get(Property.Mileage);
-			}
-
-		}
-		return x;
+		
 	}
 
 }
