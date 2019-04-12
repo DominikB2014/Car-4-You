@@ -20,6 +20,8 @@ import group3.finalproj.car.CarType;
 import group3.finalproj.car.Property;
 import group3.finalproj.car.Tuple;
 import group3.finalproj.io.ReadData;
+import group3.finalproj.util.Graph;
+import group3.finalproj.util.GraphGenerator;
 
 /**
  * GUI (JFrame) for the entire program
@@ -162,9 +164,10 @@ public class Gui1 {
 						propertyPanel.getProperties();
 						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
+							Graph G = GraphGenerator.graphMake(properties.size());
+							outputCars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 0, maxPrice, properties));
 							i++;
 							propertyPanel.setVisible(false);
-							testOutputGUI();
 							//Outputs Car JFrames
 							for (int i = 0; i < 5; i ++) {
 								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
