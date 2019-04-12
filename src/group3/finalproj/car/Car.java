@@ -64,6 +64,11 @@ public class Car{
 		return properties.get(property);
 	}
 	
+	/**
+	 * Determines if a property has been set in a car
+	 * @param property A property of a car
+	 * @return true if the property has been set
+	 */
 	public boolean hasProperty(Property property) {
 		return properties.containsKey(property);
 	}
