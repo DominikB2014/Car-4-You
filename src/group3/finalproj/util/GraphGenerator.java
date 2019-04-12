@@ -14,7 +14,7 @@ public class GraphGenerator {
 	
 	public static ArrayList<Car> cars = ReadData.cars;
 	
-	public static Graph graphMake(int n) {
+	private static Graph graphMake(int n) {
 		Graph G = new Graph(cars.size());
 		for (int i = 0; i < cars.size(); i++) {
 			for (int j = i + 1; j < cars.size(); j++) {
@@ -35,7 +35,7 @@ public class GraphGenerator {
 		return G;
 	}
 	
-	public static ArrayList<Tuple<Car, Integer>> runDFS(Graph G, int source, int maxPrice, ArrayList<Tuple<Property, Integer>> property_Rank){
+	private static ArrayList<Tuple<Car, Integer>> runDFS(Graph G, int source, int maxPrice, ArrayList<Tuple<Property, Integer>> property_Rank){
 		ArrayList<Tuple<Car, Integer>> carTuples = new ArrayList<Tuple<Car, Integer>>(); 
 		BreadthFirstPaths bfs = new BreadthFirstPaths(G, source);
 		boolean[] listCar = bfs.getMarked();
@@ -49,7 +49,7 @@ public class GraphGenerator {
 		return carTuples;
 	}
 	
-	public static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
+	private static ArrayList<Car> theBestFive(ArrayList<Tuple<Car, Integer>> carTuples){
 		System.out.println("Potential Cars: " + carTuples.size());
 		ArrayList<Car> bestCar = new ArrayList<Car>();
 		for (Tuple<Car, Integer> tuple: carTuples) {
@@ -64,7 +64,7 @@ public class GraphGenerator {
 		return fiveBest;
 	}
 	
-	public static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
+	private static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
 		int source = 0;
 		for (Car c: cars) {
 			if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 4)) {
@@ -115,10 +115,9 @@ public class GraphGenerator {
 		System.out.println("\nSource Node: " + cars.get(source));
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
-		Graph G = GraphGenerator.graphMake(3);
 		
 		System.out.println("Recommended Cars");
-		cars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, source, 40000, properties));
+		cars = GraphGenerator.masterScrum(properties, 40000, 3);
 		for (Car car: cars) {
 			System.out.println(car);
 		}

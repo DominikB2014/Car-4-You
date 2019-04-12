@@ -153,7 +153,6 @@ public class Gui1 {
 						break;
 					case 2:
 						if(initDataPanel.initData()) i++;
-						G = GraphGenerator.graphMake(3);
 						initDataPanel.lblInitalizing.setVisible(false);
 						initDataPanel.lblDone.setVisible(true);
 						break;
@@ -166,7 +165,8 @@ public class Gui1 {
 						propertyPanel.getProperties();
 						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
-							outputCars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 3, maxPrice, properties));
+							JOptionPane.showMessageDialog(null, "Intializing Data: This may take some time");
+							outputCars = GraphGenerator.masterScrum(properties, maxPrice, 3);
 							i++;
 							propertyPanel.setVisible(false);
 							//Outputs Car JFrames
