@@ -164,7 +164,7 @@ public class Gui1 {
 						propertyPanel.getProperties();
 						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
-							Graph G = GraphGenerator.graphMake(properties.size());
+							Graph G = GraphGenerator.graphMake(3);
 							outputCars = GraphGenerator.theBestFive(GraphGenerator.runDFS(G, 0, maxPrice, properties));
 							i++;
 							propertyPanel.setVisible(false);
