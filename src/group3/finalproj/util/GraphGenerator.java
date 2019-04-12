@@ -51,7 +51,7 @@ public class GraphGenerator {
 		}
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
-		for (int i = bestCar.size(); i > bestCar.size() - 5 ; i++) {
+		for (int i = bestCar.size(); i > bestCar.size() - 5 && i < bestCar.size(); i++) {
 			fiveBest.add(bestCar.get(i));
 		}
 		return fiveBest;
@@ -62,6 +62,7 @@ public class GraphGenerator {
 				|| p.equals(Property.Transmission) || p.equals(Property.Trim) || p.equals(Property.Year)
 				|| p.equals(Property.Model) || p.equals(Property.FuelType));
 	}
+	
 	private static int carIndex(Car c) {
 		for (int i = 0 ; i < ReadData.cars.size(); i++) {
 			if (ReadData.cars.get(i) == c) {
