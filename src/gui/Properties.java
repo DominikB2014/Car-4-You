@@ -12,6 +12,10 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import javax.swing.JFormattedTextField.AbstractFormatter;
+
+import group3.finalproj.car.Property;
+import group3.finalproj.car.Tuple;
 
 
 /**
@@ -22,9 +26,19 @@ import javax.swing.JTextField;
 public class Properties extends JPanel {
 	
 	private JLabel lblSelectProperties;
-	private JCheckBox chckbxCrewCabPickup;
-	private JFormattedTextField textField;
-	private JFormattedTextField textField_1;
+	private JCheckBox chckbxEcon;
+	private JCheckBox chckbxAffordability;
+	private JCheckBox chckbxAllWheelDrive;
+	private JCheckBox chckbxPerformance;
+	private JCheckBox chckbxLuxury;
+	private JCheckBox chckbxMileage;
+	
+	private JFormattedTextField mileageText;
+	private JFormattedTextField econText;
+	private JFormattedTextField awdText;
+	private JFormattedTextField affordText;
+	private JFormattedTextField performText;
+	private JFormattedTextField luxuryText;
 
 	/**
 	 * Create the panel.
@@ -48,30 +62,80 @@ public class Properties extends JPanel {
 		lblSelectProperties.setBounds(10, 11, 468, 37);
 		add(lblSelectProperties);
 		
-		chckbxCrewCabPickup = new JCheckBox("Fuel Economy");
-		chckbxCrewCabPickup.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		chckbxCrewCabPickup.setBounds(24, 55, 157, 23);
-		add(chckbxCrewCabPickup);
+		chckbxEcon = new JCheckBox("Fuel Economy");
+		chckbxEcon.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		chckbxEcon.setBounds(24, 55, 126, 23);
+		add(chckbxEcon);
 		
-		JCheckBox chckbxAffordability = new JCheckBox("Affordability");
+		chckbxAffordability = new JCheckBox("Affordability");
 		chckbxAffordability.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		chckbxAffordability.setBounds(258, 55, 157, 23);
+		chckbxAffordability.setBounds(258, 55, 116, 23);
 		add(chckbxAffordability);
 		
-		JCheckBox chckbxAllWheelDrive = new JCheckBox("All Wheel Drive");
+		chckbxAllWheelDrive = new JCheckBox("All Wheel Drive");
 		chckbxAllWheelDrive.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		chckbxAllWheelDrive.setBounds(24, 112, 157, 23);
+		chckbxAllWheelDrive.setBounds(24, 112, 126, 23);
 		add(chckbxAllWheelDrive);
 		
-		textField = new JFormattedTextField(intFormatter);
-		textField.setBounds(154, 47, 87, 32);
-		add(textField);
-		textField.setColumns(10);
+		econText = new JFormattedTextField(intFormatter);
+		econText.setBounds(154, 47, 87, 32);
+		add(econText);
+		econText.setColumns(10);
 		
-		textField_1 = new JFormattedTextField(intFormatter);
-		textField_1.setColumns(10);
-		textField_1.setBounds(154, 104, 87, 32);
-		add(textField_1);
-			
+		awdText = new JFormattedTextField(intFormatter);
+		awdText.setColumns(10);
+		awdText.setBounds(154, 104, 87, 32);
+		add(awdText);
+		
+		affordText = new JFormattedTextField(intFormatter);
+		affordText.setColumns(10);
+		affordText.setBounds(391, 47, 87, 32);
+		add(affordText);
+		
+		chckbxPerformance = new JCheckBox("Performance");
+		chckbxPerformance.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		chckbxPerformance.setBounds(258, 112, 119, 23);
+		add(chckbxPerformance);
+		
+		performText = new JFormattedTextField((Object) null);
+		performText.setColumns(10);
+		performText.setBounds(391, 104, 87, 32);
+		add(performText);
+		
+		luxuryText = new JFormattedTextField((Object) null);
+		luxuryText.setColumns(10);
+		luxuryText.setBounds(154, 167, 87, 32);
+		add(luxuryText);
+		
+		chckbxLuxury = new JCheckBox("Luxury");
+		chckbxLuxury.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		chckbxLuxury.setBounds(24, 176, 132, 23);
+		add(chckbxLuxury);
+		
+		chckbxMileage = new JCheckBox("Low Mileage");
+		chckbxMileage.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		chckbxMileage.setBounds(258, 175, 119, 23);
+		add(chckbxMileage);
+		
+		mileageText = new JFormattedTextField(intFormatter);
+		mileageText.setColumns(10);
+		mileageText.setBounds(391, 167, 87, 32);
+		add(mileageText);	
+	}
+	
+	public void getProperties() {
+		Gui1.properties.clear();
+		if(chckbxEcon.isSelected()) Gui1.properties.add(new Tuple(Property.CityMPG, normalize(econText.getText())));
+		if(chckbxAffordability.isSelected()) Gui1.properties.add(new Tuple(Property.Price, normalize(affordText.getText())));
+		if(chckbxAllWheelDrive.isSelected()) Gui1.properties.add(new Tuple(Property.Drivetrain, normalize(awdText.getText())));
+		if(chckbxPerformance.isSelected()) Gui1.properties.add(new Tuple(Property.Engine, normalize(performText.getText())));
+		if(chckbxLuxury.isSelected()) Gui1.properties.add(new Tuple(Property.Make, normalize(luxuryText.getText())));
+		if(chckbxMileage.isSelected()) Gui1.properties.add(new Tuple(Property.Mileage, normalize(mileageText.getText())));
+	}
+	
+	private int normalize(String string) {
+		if (string.equalsIgnoreCase("")) return 5;
+		if (Integer.parseInt(string) > 10) return 10;
+		return Integer.parseInt(string);
 	}
 }

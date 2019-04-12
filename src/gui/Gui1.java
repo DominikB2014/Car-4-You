@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JProgressBar;
 
 import group3.finalproj.car.CarType;
+import group3.finalproj.car.Tuple;
 
 /**
  * GUI (JFrame) for the entire program
@@ -29,6 +30,7 @@ public class Gui1 {
 	protected static int minPrice;
 	protected static int maxPrice;
 	protected static int files; //0 = new Cars, 1 = used Cars, 2 = all
+	protected static ArrayList<Tuple> properties;
 
 	/**
 	 * Launch the application.

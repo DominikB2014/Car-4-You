@@ -1,5 +1,7 @@
 package gui;
 
+import javax.swing.JPanel;
+
 import java.awt.Font;
 import java.util.ArrayList;
 
