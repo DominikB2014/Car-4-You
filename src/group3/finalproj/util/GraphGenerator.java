@@ -20,7 +20,6 @@ public class GraphGenerator {
 			System.out.println("\nSource Node: " + cars.get(source) + " " + source);
 			Graph G = graphMake(n);
 			System.out.println("Graph created");
-//			for(Integer i: G.adj(source)) System.out.print(cars.get(i) + " ");
 			System.out.println();
 			ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
 			ArrayList<Car> theBest = theBestFive(carTuples);
@@ -106,7 +105,6 @@ public class GraphGenerator {
 		for (Car car: cars) {
 			System.out.println(car.scoreCalc(property_rank, maxPrice) + " > " + factor*5);
 			if (car.scoreCalc(property_rank, maxPrice) > factor*5) {
-//				System.out.println(car);
 				tempCars.add(car);
 				if(cars.get(source).scoreCalc(property_rank, maxPrice) < car.scoreCalc(property_rank, maxPrice)) {
 					source = tempCars.indexOf(car);
@@ -133,15 +131,12 @@ public class GraphGenerator {
 	public static void main(String args[]) {
 		
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
-//		types.add(CarType.Coupe);
-//		types.add(CarType.Sedan);
 		types.add(CarType.Coupe);
 		ReadData.readCars("data/newCars.csv", types, 10000, 30000);
 		ReadData.readCars("data/usedCars.csv", types, 10000, 30000);
 		
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 		properties.add(new Tuple<Property, Integer>(Property.Engine, 5));
-//		properties.add(new Tuple<Property, Integer>(Property.Make, 7));
 		
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");

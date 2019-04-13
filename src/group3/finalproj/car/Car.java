@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 import group3.finalproj.io.ReadData;
 
-/*
+/**
  * Data type used to represent a car
  * @author Dominik Buszowiecki
  * @author Zayed Sheet
