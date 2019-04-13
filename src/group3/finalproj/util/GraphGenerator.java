@@ -75,7 +75,7 @@ public class GraphGenerator {
 				source = cars.indexOf(c);
 			}
 		}
-		cars = tempCars;
+		cars = (ArrayList<Car>) tempCars.clone();
 		return source;
 	}
 	
