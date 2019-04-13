@@ -19,6 +19,8 @@ public class GraphGenerator {
 		System.out.println("\nSource Node: " + cars.get(source));
 		Graph G = graphMake(n);
 		System.out.println("Graph created");
+		for(Integer i: G.adj(source)) System.out.print(cars.get(i) + " ");
+		System.out.println();
 		ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
 		ArrayList<Car> theBest = theBestFive(carTuples);
 		return theBest;
@@ -34,13 +36,13 @@ public class GraphGenerator {
 				int count = 0;
 				for (Property p: Property.values()) {
 					if (cars.get(i).hasProperty(p) && cars.get(j).hasProperty(p) 
-							&& cars.get(i).scoreCalc(p) < 11 && cars.get(i).scoreCalc(p) > 6
-							&& cars.get(j).scoreCalc(p) < 11 && cars.get(j).scoreCalc(p) > 6
+							&& cars.get(i).scoreCalc(p) > 3
+							&& cars.get(j).scoreCalc(p) > 3
 							&& calcableProperty(p)) {
 						count++;
 					}	
 				}
-				if (count == n) {
+				if (count >= n) {
 					G.addEdge(i, j);
 				}
 			}

@@ -79,9 +79,9 @@ public class ReadData {
 	 */
 	public static void setMaxPrice() {
 		int max = 0;
-		for (int i = 0; i < cars.size(); i++) {
-			if ((int) cars.get(i).get(Property.Price) > max) {
-				max = (int) cars.get(i).get(Property.Price);
+		for (Car car: cars) {
+			if ((int) car.get(Property.Price) > max) {
+				max = (int) car.get(Property.Price);
 			}
 		}
 		if (max > 50000) maxPrice = 50000;
@@ -94,9 +94,9 @@ public class ReadData {
 	 */
 	public static void setMaxMileage() {
 		int max = 0;
-		for (int i = 0; i < cars.size(); i++) {
-			if ((int) cars.get(i).get(Property.Mileage) > max) {
-				max = (int) cars.get(i).get(Property.Mileage);
+		for (Car car: cars) {
+			if (car.hasProperty(Property.Mileage) && (int) car.get(Property.Mileage) > max) {
+				max = (int) car.get(Property.Mileage);
 			}
 		}
 		if (max > 200000) maxMileage = 200000;
