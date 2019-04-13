@@ -81,8 +81,8 @@ public class GraphGenerator {
 	 */
 	private static ArrayList<Tuple<Car, Integer>> runDFS(Graph G, int source, int maxPrice, ArrayList<Tuple<Property, Integer>> property_Rank){
 		ArrayList<Tuple<Car, Integer>> carTuples = new ArrayList<Tuple<Car, Integer>>(); 
-		BreadthFirstPaths bfs = new BreadthFirstPaths(G, source);
-		boolean[] listCar = bfs.getMarked();
+		DepthFirstPaths dfs = new DepthFirstPaths(G, source);
+		boolean[] listCar = dfs.getMarked();
 		for (int i = 0; i < listCar.length; i++) {
 			if (listCar[i]) {
 				int score = cars.get(i).scoreCalc(property_Rank, maxPrice);
@@ -146,7 +146,7 @@ public class GraphGenerator {
 		double factor = ((double)property_rank.size()*((double)total/(double)(property_rank.size()*10.0)));
 		
 		for (Car car: cars) {
-			System.out.println(car.scoreCalc(property_rank, maxPrice) + " > " + factor*5);
+			//System.out.println(car.scoreCalc(property_rank, maxPrice) + " > " + factor*5);
 			if (car.scoreCalc(property_rank, maxPrice) > factor*5) {
 				tempCars.add(car);
 				if(cars.get(source).scoreCalc(property_rank, maxPrice) < car.scoreCalc(property_rank, maxPrice)) {
