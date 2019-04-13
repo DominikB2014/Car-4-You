@@ -59,7 +59,7 @@ public class GraphGenerator {
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
 		for (int i = bestCar.size() - 1; i < bestCar.size() && i > bestCar.size()-6; i--) {
-			fiveBest.add(bestCar.get(i));
+			if (i < bestCar.size()) fiveBest.add(bestCar.get(i));
 		}
 		return fiveBest;
 	}
@@ -75,12 +75,13 @@ public class GraphGenerator {
 				tempCars.add(c);
 			}
 		}
-		cars = (ArrayList<Car>) tempCars.clone();
+		cars = tempCars;
 		return source;
 	}
 	
 	public static ArrayList<Car> masterScrum(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
 		int source = findSource(property_rank, maxPrice);
+		System.out.println("\nSource Node: " + cars.get(source));
 		Graph G = graphMake(n);
 		ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
 		ArrayList<Car> theBest = theBestFive(carTuples);
@@ -111,10 +112,8 @@ public class GraphGenerator {
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
 		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
 		
-		int source = GraphGenerator.findSource(properties, 40000);
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
-		System.out.println("\nSource Node: " + cars.get(source));
 		
 		ArrayList<Car> best = new ArrayList<Car>();
 		
