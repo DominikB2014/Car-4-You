@@ -1,4 +1,10 @@
 # Group03_FinalProject
-A program that helps the user find their next car easier and faster. Uses machine learning and mass data manipulation to accomplish this.
+A program that helps the user find their next car easier and faster. Uses graphing, searching and sorting to accomplish this
 
-Data folder - contains data bases in .csv format. We are planning to add more databases to output better recommendations.
+Data folder
+-Contains data bases in .csv format. 
+
+How to run
+-Run the `main` under gui.Gui1.java.
+- Please note the program will take long to run if there is a lot of data to parse.
+- For quick results, please specify a price range ex) 10,000 to 30,000
