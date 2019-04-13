@@ -73,7 +73,7 @@ public class Heap {
     }
 
     // print array to standard outputd
-    private static void show(ArrayList<Car> a) {
+    public static void show(ArrayList<Car> a) {
         for (int i = 0; i < a.size(); i++) {
             System.out.println(a.get(i));
         }
