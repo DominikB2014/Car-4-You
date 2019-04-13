@@ -200,9 +200,4 @@ public class Gui1 {
 		
 	}
 	
-	private void testOutputGUI() {
-		for (int i = 0; i < 5; i++) {
-			outputCars.add(ReadData.cars.get(i));
-		}
-	}
 }
