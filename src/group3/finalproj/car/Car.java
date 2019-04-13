@@ -147,7 +147,7 @@ public class Car {
 	private int numCyl() {
 		String cylinders[] = { "4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 " }; // Possible number of cylinders
 		for (String cyl : cylinders) {
-			if (((String) this.get(Property.Engine)).contains("4 "))
+			if (((String) this.get(Property.Engine)).contains(cyl))
 				return Integer.parseInt(cyl.substring(0, cyl.length() - 1)); // Strips the space, converts to integers
 		}
 		return -1;
@@ -195,7 +195,9 @@ public class Car {
 			if (this.hasProperty(Property.Mileage)) {
 				if (!((int) this.get(Property.Mileage) == 0)) {
 					int x = ReadData.getMaxMileage();
-					return (1 - (x / (int) this.get(Property.Mileage))) * rank;
+					double y = (1 - ((int)this.get(Property.Mileage)/(double)x)) * rank;
+					if (y < 0) return 0;
+					return (int)y;
 				}
 			}
 			return 0;

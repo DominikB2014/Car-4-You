@@ -58,25 +58,10 @@ public class GraphGenerator {
 		}
 		Heap.sort(bestCar, Property.Score);
 		ArrayList<Car> fiveBest = new ArrayList<Car>();
-		for (int i = bestCar.size() - 1; i < bestCar.size() && i > bestCar.size()-6; i--) {
+		for (int i = bestCar.size() - 1; i >= 0 && i > bestCar.size()-6; i--) {
 			if (i < bestCar.size()) fiveBest.add(bestCar.get(i));
 		}
 		return fiveBest;
-	}
-	
-	private static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
-		int source = 0;
-		ArrayList<Car> tempCars = new ArrayList<Car>();
-		for (Car c: cars) {
-			if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 4)) {
-				tempCars.add(c);
-			}
-			else if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 8)) {
-				source = cars.indexOf(c);
-			}
-		}
-		cars = (ArrayList<Car>) tempCars.clone();
-		return source;
 	}
 	
 	public static ArrayList<Car> masterScrum(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
@@ -97,7 +82,32 @@ public class GraphGenerator {
 				|| p.equals(Property.Model) || p.equals(Property.FuelType));
 	}
 	
+	private static int findSource(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice) {
+		int source = 0;
+		int total = totalRank(property_rank);
+		System.out.println("TOTAL: " + total);
+		ArrayList<Car> tempCars = new ArrayList<Car>();
+		for (Car car: cars) {
+//			System.out.println(c.scoreCalc(property_rank, maxPrice) + " > " + property_rank.size()*(total/(property_rank.size()*10))*4);
+			if (car.scoreCalc(property_rank, maxPrice) > (property_rank.size()*(total/(property_rank.size()*10))*8)) {
+				System.out.println(car);
+				tempCars.add(car);
+			}
+			else if (car.scoreCalc(property_rank, maxPrice) > (property_rank.size()*(total/(property_rank.size()*10))*8)) {
+				source = cars.indexOf(car);
+			}
+		}
+		cars = tempCars;
+		return source;
+	}
 	
+	private static int totalRank(ArrayList<Tuple<Property, Integer>> property_rank) {
+		int sum = 0;
+		for(Tuple tup: property_rank) {
+			sum += (int)tup.weight;
+		}
+		return sum;
+	}
 	   /***************************************************************************
 	    * Main method for testing
 	    ***************************************************************************/
@@ -107,10 +117,10 @@ public class GraphGenerator {
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
 		types.add(CarType.Coupe);
 		types.add(CarType.Sedan);
-		ReadData.readCars("data/newCars.csv", types, 0, 40000);
+		ReadData.readCars("data/usedCars.csv", types, 0, 5000);
 		
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
-		properties.add(new Tuple<Property, Integer>(Property.Make, 9));
+		properties.add(new Tuple<Property, Integer>(Property.Engine, 10));
 		
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
@@ -118,9 +128,9 @@ public class GraphGenerator {
 		ArrayList<Car> best = new ArrayList<Car>();
 		
 		System.out.println("Recommended Cars");
-		best = GraphGenerator.masterScrum(properties, 40000, 3);
+		best = GraphGenerator.masterScrum(properties, 5000, 3);
 		for (Car car: best) {
-			System.out.println(car);
+			System.out.println(car + " " + (String)car.get(Property.Engine));
 		}
 	}
 }

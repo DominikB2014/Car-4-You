@@ -90,14 +90,14 @@ public class ReadData {
 	 * @return a integer of the highest mileage
 	 */
 	public static int getMaxMileage() {
-		int x = 0;
+		int max = 0;
 		for (int i = 0; i < cars.size(); i++) {
-			if ((int) cars.get(i).get(Property.Mileage) > x) {
-				x = (int) cars.get(i).get(Property.Mileage);
+			if ((int) cars.get(i).get(Property.Mileage) > max) {
+				max = (int) cars.get(i).get(Property.Mileage);
 			}
-
 		}
-		return x;
+		if (max > 200000) return 200000;
+		return max;
 	}
 	
 	   /***************************************************************************

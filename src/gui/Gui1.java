@@ -170,11 +170,11 @@ public class Gui1 {
 							i++;
 							propertyPanel.setVisible(false);
 							//Outputs Car JFrames
-							for (int i = 0; i < outputCars.size(); i ++) {
+							for (int i = 0; i < outputCars.size(); i++) {
 								carPanes[i] = new Output(outputCars.get(i).toString(), (String)outputCars.get(i).get(Property.Link));
 								frame.getContentPane().add(carPanes[i]);
 							}
-							for(int i = 0; i < 5 - outputCars.size(); i++) {
+							for(int i = 4; i > outputCars.size()-1; i--) {
 								carPanes[i] = new Output("No Car Found", "");
 							}
 							btnBack.setVisible(false);
