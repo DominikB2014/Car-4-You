@@ -138,7 +138,7 @@ public class Properties extends JPanel {
 	}
 	
 	private void printConsole() {
-		System.out.println("Properties Selected");
+		System.out.print("Properties Selected: ");
 		for (Tuple<Property, Integer> tuple: Gui1.properties) {
 			System.out.println(tuple);
 		}

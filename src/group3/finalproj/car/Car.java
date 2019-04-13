@@ -171,11 +171,15 @@ public class Car {
 			}
 
 		case Price:
-			if (maxPrice != Integer.MAX_VALUE) {
-				return (1 - ((int) this.get(Property.Price) / maxPrice)) * rank;
-			} else {
-				return (1 - ((int) this.get(Property.Price) / ReadData.getMaxPrice())) * rank;
-			}
+//			if (maxPrice != Integer.MAX_VALUE) {
+//				double y = 
+//				return (1 - ((int) this.get(Property.Price) / maxPrice)) * rank;
+//			} else {
+			double z = (1 - ((int) this.get(Property.Price) / (double)ReadData.maxPrice)) * rank;
+			if (z < 0) return 0;
+			return (int)z;
+			
+//			}
 
 		case Engine:
 			return (this.numCyl() / 12) * rank;
@@ -194,7 +198,7 @@ public class Car {
 		case Mileage:
 			if (this.hasProperty(Property.Mileage)) {
 				if (!((int) this.get(Property.Mileage) == 0)) {
-					int x = ReadData.getMaxMileage();
+					int x = ReadData.maxMileage;
 					double y = (1 - ((int)this.get(Property.Mileage)/(double)x)) * rank;
 					if (y < 0) return 0;
 					return (int)y;

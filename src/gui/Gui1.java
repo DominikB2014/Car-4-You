@@ -166,7 +166,8 @@ public class Gui1 {
 						if(properties.isEmpty()) {JOptionPane.showMessageDialog(null, "Please Select 1 Property Property");}
 						else {
 							JOptionPane.showMessageDialog(null, "Intializing Data: This may take some time");
-							outputCars = GraphGenerator.masterScrum(properties, maxPrice, 3);
+							int n = (properties.size() > 2 ? 3 : properties.size() + 1);
+							outputCars = GraphGenerator.masterScrum(properties, maxPrice, n);
 							i++;
 							propertyPanel.setVisible(false);
 							//Outputs Car JFrames

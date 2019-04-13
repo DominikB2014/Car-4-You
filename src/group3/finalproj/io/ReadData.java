@@ -15,6 +15,8 @@ import group3.finalproj.car.*;
 public class ReadData {
 
 	public static ArrayList<Car> cars = new ArrayList<Car>();
+	public static int maxMileage = 50000;
+	public static int maxPrice = 200000;
 	
 	/**
 	 * Reads cars with specific types into the cars array
@@ -75,29 +77,30 @@ public class ReadData {
 	 * Returns the price of the most expensive car in the data
 	 * @return a integer of the highest price
 	 */
-	public static int getMaxPrice() {
-		int x = 0;
+	public static void setMaxPrice() {
+		int max = 0;
 		for (int i = 0; i < cars.size(); i++) {
-			if ((int) cars.get(i).get(Property.Price) > x) {
-				x = (int) cars.get(i).get(Property.Price);
+			if ((int) cars.get(i).get(Property.Price) > max) {
+				max = (int) cars.get(i).get(Property.Price);
 			}
 		}
-		return x;
+		if (max > 50000) maxPrice = 50000;
+		else maxPrice = max;
 	}
 	
 	/**
 	 * Returns the mileage of the car with the most mileage in the data
 	 * @return a integer of the highest mileage
 	 */
-	public static int getMaxMileage() {
+	public static void setMaxMileage() {
 		int max = 0;
 		for (int i = 0; i < cars.size(); i++) {
 			if ((int) cars.get(i).get(Property.Mileage) > max) {
 				max = (int) cars.get(i).get(Property.Mileage);
 			}
 		}
-		if (max > 200000) return 200000;
-		return max;
+		if (max > 200000) maxMileage = 200000;
+		else maxMileage = max;
 	}
 	
 	   /***************************************************************************
