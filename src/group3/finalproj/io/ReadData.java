@@ -17,6 +17,7 @@ public class ReadData {
 	public static ArrayList<Car> cars = new ArrayList<Car>();
 	public static int maxMileage = 50000;
 	public static int maxPrice = 200000;
+	public static int maxCylinders = 12;
 	
 	/**
 	 * Reads cars with specific types into the cars array
@@ -74,33 +75,29 @@ public class ReadData {
 	    ***************************************************************************/
 	
 	/**
-	 * Returns the price of the most expensive car in the data
-	 * @return a integer of the highest price
+	 * Sets the maximum values of price, mileage and number of cylinders
 	 */
-	public static void setMaxPrice() {
-		int max = 0;
+	public static void setValues() {
+		int maxP = 0;
+		int maxM = 0;
+		int mostCyl = 0;
 		for (Car car: cars) {
-			if ((int) car.get(Property.Price) > max) {
-				max = (int) car.get(Property.Price);
+			if ((int) car.get(Property.Price) > maxP) {
+				maxP = (int) car.get(Property.Price);
+			}
+			if (car.hasProperty(Property.Mileage) && (int) car.get(Property.Mileage) > maxM) {
+				maxM = (int) car.get(Property.Mileage);
+			}
+			if ((int) car.numCyl() > mostCyl) {
+				mostCyl = (int)car.numCyl();
 			}
 		}
-		if (max > 50000) maxPrice = 50000;
-		else maxPrice = max;
-	}
-	
-	/**
-	 * Returns the mileage of the car with the most mileage in the data
-	 * @return a integer of the highest mileage
-	 */
-	public static void setMaxMileage() {
-		int max = 0;
-		for (Car car: cars) {
-			if (car.hasProperty(Property.Mileage) && (int) car.get(Property.Mileage) > max) {
-				max = (int) car.get(Property.Mileage);
-			}
-		}
-		if (max > 200000) maxMileage = 200000;
-		else maxMileage = max;
+		if (maxP > 50000) maxPrice = 50000;
+		else maxPrice = maxP;
+		if (maxM > 200000) maxMileage = 200000;
+		else maxMileage = maxM;
+		if (mostCyl > 12) maxCylinders = 12;
+		else maxCylinders = mostCyl;
 	}
 	
 	   /***************************************************************************

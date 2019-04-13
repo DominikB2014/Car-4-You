@@ -90,8 +90,8 @@ public class Car {
 	 */
 	@Override
 	public String toString() {
-		return properties.get(Property.Year) + " " + properties.get(Property.Make) + " "
-				+ properties.get(Property.Model) + " for: $" + properties.get(Property.Price);
+		return properties.get(Property.Year) + " " + properties.get(Property.Make) + " " + properties.get(Property.Model) + " "
+				+ properties.get(Property.Trim) + " for: $" + properties.get(Property.Price);
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class Car {
 	 * 
 	 * @return the number of cylinder a car has, if not known -1
 	 */
-	private int numCyl() {
+	public int numCyl() {
 		String cylinders[] = { "4 ", "6 ", "8 ", "10 ", "12 ", "14 ", "16 ", "18 " }; // Possible number of cylinders
 		for (String cyl : cylinders) {
 			if (((String) this.get(Property.Engine)).contains(cyl))
@@ -182,7 +182,8 @@ public class Car {
 //			}
 
 		case Engine:
-			return (this.numCyl() / 12) * rank;
+			double engine = ((double)this.numCyl() / (double)ReadData.maxCylinders)*(double)rank;
+			return (int)engine;
 
 		case Make:
 			String[] names = { "Aston Martin", "Audi", "Bently", "BMW", "Ferrari", "Genesis", "Infiniti", "Jaguar",
@@ -204,7 +205,7 @@ public class Car {
 					return (int)y;
 				}
 			}
-			return 0;
+			return rank;
 
 		case Drivetrain:
 			if (((String) this.get(Property.Drivetrain)).equals("AWD")) {

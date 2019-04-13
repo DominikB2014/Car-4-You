@@ -16,14 +16,20 @@ public class GraphGenerator {
 	
 	public static ArrayList<Car> masterScrum(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
 		int source = findSource(property_rank, maxPrice);
-		System.out.println("\nSource Node: " + cars.get(source));
-		Graph G = graphMake(n);
-		System.out.println("Graph created");
-		for(Integer i: G.adj(source)) System.out.print(cars.get(i) + " ");
-		System.out.println();
-		ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
-		ArrayList<Car> theBest = theBestFive(carTuples);
-		return theBest;
+		try {
+			System.out.println("\nSource Node: " + cars.get(source) + " " + source);
+			Graph G = graphMake(n);
+			System.out.println("Graph created");
+//			for(Integer i: G.adj(source)) System.out.print(cars.get(i) + " ");
+			System.out.println();
+			ArrayList<Tuple<Car, Integer>> carTuples = runDFS(G, source, maxPrice, property_rank);
+			ArrayList<Car> theBest = theBestFive(carTuples);
+			return theBest;
+		}catch(IndexOutOfBoundsException e){
+			ArrayList<Car> carTuples = new ArrayList<Car>();
+			return carTuples;
+		}
+
 	}
 	   /***************************************************************************
 	    * Helper functions
@@ -91,16 +97,20 @@ public class GraphGenerator {
 		System.out.println("TOTAL: " + total);
 		ArrayList<Car> tempCars = new ArrayList<Car>();
 		
-		ReadData.setMaxPrice();
-		ReadData.setMaxMileage();
+		ReadData.setValues();
+		
+		System.out.println(property_rank.size());
+		
+		double factor = ((double)property_rank.size()*((double)total/(double)(property_rank.size()*10.0)));
 		
 		for (Car car: cars) {
-			if (car.scoreCalc(property_rank, maxPrice) > (property_rank.size()*(total/(property_rank.size()*10))*5)) {
-				System.out.println(car);
+			System.out.println(car.scoreCalc(property_rank, maxPrice) + " > " + factor*5);
+			if (car.scoreCalc(property_rank, maxPrice) > factor*5) {
+//				System.out.println(car);
 				tempCars.add(car);
-			}
-			else if (car.scoreCalc(property_rank, maxPrice) > (property_rank.size()*(total/(property_rank.size()*10))*8)) {
-				source = cars.indexOf(car);
+				if(cars.get(source).scoreCalc(property_rank, maxPrice) < car.scoreCalc(property_rank, maxPrice)) {
+					source = tempCars.indexOf(car);
+				}
 			}
 		}
 		System.out.println("DONE: " + tempCars.size() + " meet the properties");
@@ -123,22 +133,24 @@ public class GraphGenerator {
 	public static void main(String args[]) {
 		
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
+//		types.add(CarType.Coupe);
+//		types.add(CarType.Sedan);
 		types.add(CarType.Coupe);
-		types.add(CarType.Sedan);
-		ReadData.readCars("data/usedCars.csv", types, 0, 40000);
+		ReadData.readCars("data/newCars.csv", types, 10000, 30000);
+		ReadData.readCars("data/usedCars.csv", types, 10000, 30000);
 		
 		ArrayList<Tuple<Property, Integer>> properties = new ArrayList<Tuple<Property, Integer>>();
-		properties.add(new Tuple<Property, Integer>(Property.Engine, 10));
+		properties.add(new Tuple<Property, Integer>(Property.Engine, 5));
+//		properties.add(new Tuple<Property, Integer>(Property.Make, 7));
 		
 		System.out.print("Properties Selected: ");
 		for(Tuple<Property, Integer> tuple: properties) System.out.print(tuple + " ");
 		
 		ArrayList<Car> best = new ArrayList<Car>();
-		int n = (properties.size() > 2 ? 3 : properties.size() + 1);
 		System.out.println("Recommended Cars");
-		best = GraphGenerator.masterScrum(properties, 40000, n);
+		best = GraphGenerator.masterScrum(properties, 30000, properties.size());
 		for (Car car: best) {
-			System.out.println(car + " " + (String)car.get(Property.Engine));
+			System.out.println(car + " " + car.get(Property.Engine));
 		}
 	}
 }
