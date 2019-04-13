@@ -69,10 +69,10 @@ public class GraphGenerator {
 		ArrayList<Car> tempCars = new ArrayList<Car>();
 		for (Car c: cars) {
 			if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 4)) {
-				source = cars.indexOf(c);
-			}
-			else {
 				tempCars.add(c);
+			}
+			else if (c.scoreCalc(property_rank, maxPrice) > (property_rank.size() * 8)) {
+				source = cars.indexOf(c);
 			}
 		}
 		cars = (ArrayList<Car>) tempCars.clone();
