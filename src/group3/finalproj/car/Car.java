@@ -14,13 +14,13 @@ public class Car {
 
 	ArrayList<Car> carList = ReadData.cars;
 
-	// Maps a category to its value of this car
+	// Maps a property to its value of this car
 	private TreeMap<Property, Object> properties = new TreeMap<Property, Object>();
 
 	/**
-	 * Constructs a car based on its categories
+	 * Constructs a car based on its properties
 	 * 
-	 * @param properties An array of categories
+	 * @param properties An array of properties
 	 * @param values     A array of values, each corresponding to a category in the
 	 *                   categories array
 	 */
@@ -163,6 +163,8 @@ public class Car {
 	private int scoreProperty(Property property, int rank, int maxPrice) {
 		switch (property) {
 
+		// Custom algorithm to rank properties created below
+		
 		case CityMPG:
 			if ((int) this.get(Property.CityMPG) > 50) {
 				return 50 / 45 * rank;
@@ -171,15 +173,9 @@ public class Car {
 			}
 
 		case Price:
-//			if (maxPrice != Integer.MAX_VALUE) {
-//				double y = 
-//				return (1 - ((int) this.get(Property.Price) / maxPrice)) * rank;
-//			} else {
 			double z = (1 - ((int) this.get(Property.Price) / (double)ReadData.maxPrice)) * rank;
 			if (z < 0) return 0;
 			return (int)z;
-			
-//			}
 
 		case Engine:
 			double engine = ((double)this.numCyl() / (double)ReadData.maxCylinders)*(double)rank;

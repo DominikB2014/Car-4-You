@@ -11,6 +11,7 @@ import group3.finalproj.car.Property;
 import group3.finalproj.io.ReadData;
 
 /**
+ * Sorts the cars in ReadData.cars by a property
  * @author Andrew Hum
  *
  */

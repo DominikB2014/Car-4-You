@@ -1,11 +1,21 @@
 # Group03_FinalProject
-A program that helps the user find their next car easier and faster. Uses graphing, searching and sorting to accomplish this
+A program that helps the user find their next car easier and faster. 
+Uses graphing, searching and sorting on a big dataset to accomplish this.
 
 Data folder
 -Contains data bases in .csv format. 
 
-How to run
-- Run the `main` under gui.Gui1.java.
-- Please note the program will take long to run if there is a lot of data to parse.
-- For quick results, please specify a price range ex) 10,000 to 30,000
-- Note: Many links may be expired as the data was created previously
+Deployment Document
+1) Run the `main` under gui.Gui1
+2) Select at least one car type
+3) Select car condition and specify price range(optional)
+4) Select at least one property, and rank each property (optional)
+5) At most 5 cars will be outputted as a result (their name + purchase link).
+You can click next/back to go through them.
+
+Notes:
+- For example inputs, please refer to UserTest.pdf
+- The program will take long to run if there is a lot of data to parse
+- There are much more used cars then new, therefore selecting used condition (or I don't know = new + used),
+will yield better results.
+- Some links may be expired as the data was created several weeks ago

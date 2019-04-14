@@ -176,6 +176,10 @@ public class GraphGenerator {
 	    * Main method for testing
 	    ***************************************************************************/
 	
+	/**
+	 * Main method for testing purposes 
+	 * @param args the command-line arguments
+	 */
 	public static void main(String args[]) {
 		
 		ArrayList<CarType> types = new ArrayList<CarType>(); //Must be in sorted order!	
