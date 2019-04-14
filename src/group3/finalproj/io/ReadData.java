@@ -75,7 +75,7 @@ public class ReadData {
 	    ***************************************************************************/
 	
 	/**
-	 * Sets the maximum values of price, mileage and number of cylinders
+	 * Sets the maximum values of price, mileage and number of cylinders in the current data
 	 */
 	public static void setValues() {
 		int maxP = 0;
