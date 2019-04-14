@@ -1,0 +1,13 @@
+SFWR ENG 2XB3
+Buszowiecki	400115125	Team Lead	The work being submitted by me is my group work
+Hum		400138826	Research	The work being submitted by me is my group work
+Sheet		400090956	Designer	The work being submitted by me is my group work
+Yazdinia	400144881	Tester		The work being submitted by me is my group work
+
+Design decision: 
+Aside from testing important classes separately using JUnit 
+we decided to test our program's final output by conventional means because it was
+really difficult to test a program which outputs subjective results. To do this we got our friends
+to test the program and decide whether the outputs were accurate. We received very
+positive results where 3/5 testers said the results were "very accurate" and 2/5 said "accurate" 
+See UserTests.pdf for full detail. 
