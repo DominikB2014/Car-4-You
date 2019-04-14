@@ -167,7 +167,7 @@ public class Gui1 {
 						else {
 							JOptionPane.showMessageDialog(null, "Intializing Data: This may take some time");
 							
-							outputCars = GraphGenerator.masterScrum(properties, maxPrice, properties.size());
+							outputCars = GraphGenerator.findBestCars(properties, maxPrice, properties.size());
 							
 							i++;
 							propertyPanel.setVisible(false);

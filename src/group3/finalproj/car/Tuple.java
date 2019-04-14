@@ -8,8 +8,8 @@ package group3.finalproj.car;
  * @param <Y>
  */
 public class Tuple<X, Y> {
-	public final X property;
-	public final Y weight;
+	private final X property;
+	private final Y weight;
 	
 	public Tuple(X x, Y y) {
 		this.property = x;

@@ -23,7 +23,7 @@ public class GraphGenerator {
 	 * @param n The number of properties that our graph is going to connect the edges based on
 	 * @return carTuples An ArrayList of car with a maximum size of five.
 	 */
-	public static ArrayList<Car> masterScrum(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
+	public static ArrayList<Car> findBestCars(ArrayList<Tuple<Property, Integer>> property_rank, int maxPrice, int n){
 		int source = findSource(property_rank, maxPrice);
 		try {
 			System.out.println("\nSource Node: " + cars.get(source) + " " + source);
@@ -167,7 +167,7 @@ public class GraphGenerator {
 	private static int totalRank(ArrayList<Tuple<Property, Integer>> property_rank) {
 		int sum = 0;
 		for(Tuple<Property, Integer> tup: property_rank) {
-			sum += (int)tup.weight;
+			sum += (int)tup.getRank();
 		}
 		return sum;
 	}
@@ -191,7 +191,7 @@ public class GraphGenerator {
 		
 		ArrayList<Car> best = new ArrayList<Car>();
 		System.out.println("Recommended Cars");
-		best = GraphGenerator.masterScrum(properties, 30000, properties.size());
+		best = GraphGenerator.findBestCars(properties, 30000, properties.size());
 		for (Car car: best) {
 			System.out.println(car + " " + car.get(Property.Engine));
 		}
