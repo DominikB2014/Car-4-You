@@ -5,7 +5,7 @@ Uses graphing, searching and sorting on a big dataset to accomplish this.
 Data folder
 -Contains data bases in .csv format. 
 
-####Deployment Document
+####Deployment Document (Using Eclipse IDE)
 1) Run the `main` under gui.Gui1<br />
 2) Select at least one car type<br />
 3) Select car condition and specify price range(optional)<br />
